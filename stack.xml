@@ -1,0 +1,9 @@
+<stack>
+  <description brief="bunch of general purpose libraries for robocup small size league systems">This stack includes software implementations of commonly used path planning, and motion control algorithms for ssl robots.Moreover, it consitutes set of messages (e.g. global_state, local_state, and game_state) that are widely used by robocup-ssl teams. </description>
+  <author>Maintained by Kadir F. Uyanik</author>
+  <license></license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/robocup_ssl</url>
+  <depend stack="ros" />
+
+</stack>

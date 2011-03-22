@@ -1,0 +1,83 @@
+/usr/bin/make 
+[ rosmake ] No package specified.  Building ['demo_controller']                 
+[ rosmake ] Packages requested are: ['demo_controller']                         
+[ rosmake ] Logging to directory/home/kadir/.ros/rosmake/rosmake_output-20110319-112508
+[ rosmake ] Expanded args ['demo_controller'] to:
+['demo_controller']           
+[ rosmake ] Checking rosdeps compliance for packages demo_controller.  This may take a few seconds.
+[ rosmake ] rosdep check passed all system dependencies in packages             
+[rosmake-0] Starting >>> rosbuild [ make ]                                      
+[ rosmake ] [ make ] [ rosbuild: 0.0 sec ]            [ 1 Active 1/14 Complete ]
+[rosmake-1] Starting >>> cpp_common [ make ]                                    
+[rosmake-1] Finished <<< cpp_common ROS_NOBUILD in package cpp_common           
+[rosmake-0] Finished <<< rosbuild ROS_NOBUILD in package rosbuild
+ No Makefile in package rosbuild
+[rosmake-1] Starting >>> roscpp_traits [ make ]                                 
+[rosmake-1] Finished <<< roscpp_traits ROS_NOBUILD in package roscpp_traits     
+[rosmake-1] Starting >>> rostime [ make ]                                       
+[rosmake-1] Finished <<< rostime ROS_NOBUILD in package rostime                 
+[rosmake-1] Starting >>> roscpp_serialization [ make ]                          
+[rosmake-1] Finished <<< roscpp_serialization ROS_NOBUILD in package roscpp_serialization
+[rosmake-1] Starting >>> roslib [ make ]                                        
+[rosmake-1] Finished <<< roslib ROS_NOBUILD in package roslib                   
+[rosmake-1] Starting >>> xmlrpcpp [ make ]                                      
+[rosmake-1] Finished <<< xmlrpcpp ROS_NOBUILD in package xmlrpcpp               
+[rosmake-1] Starting >>> rosconsole [ make ]                                    
+[rosmake-1] Finished <<< rosconsole ROS_NOBUILD in package rosconsole           
+[rosmake-1] Starting >>> std_msgs [ make ]                                      
+[rosmake-1] Finished <<< std_msgs ROS_NOBUILD in package std_msgs               
+[rosmake-1] Starting >>> rosgraph_msgs [ make ]                                 
+[rosmake-1] Finished <<< rosgraph_msgs ROS_NOBUILD in package rosgraph_msgs     
+[rosmake-0] Starting >>> roslang [ make ]                                       
+[rosmake-0] Finished <<< roslang ROS_NOBUILD in package roslang
+ No Makefile in package roslang
+[rosmake-0] Starting >>> roscpp [ make ]                                        
+[rosmake-0] Finished <<< roscpp ROS_NOBUILD in package roscpp                   
+[rosmake-0] Starting >>> demo_controller [ make ]                               
+[ rosmake ] [ make ] [ demo_controller: 0.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.5 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.6 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.7 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.8 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 0.9 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.5 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.6 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.7 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.8 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 1.9 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.5 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.6 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.7 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.8 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 2.9 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.5 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.6 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.7 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.8 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 3.9 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 4.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_controller: 4.1 sec ]    [ 1 Active 13/14 Complete ]
+[rosmake-0] Finished <<< demo_controller [PASS] [ 4.15 seconds ]                
+[ rosmake ] Results:                                                            
+[ rosmake ] Built 14 packages with 0 failures.                                  
+[ rosmake ] Summary output to directory                                         
+[ rosmake ] /home/kadir/.ros/rosmake/rosmake_output-20110319-112508             

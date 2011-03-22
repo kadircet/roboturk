@@ -1,0 +1,15 @@
+#include "iostream"
+#include "ros/ros.h"
+
+int main()
+{
+  ros::init(argc, argv, "demo_supervisor");
+  ros::NodeHandle n;
+
+  while(n.ok())
+  {
+    ros::spinOnce();
+  }
+
+  return 0;
+}

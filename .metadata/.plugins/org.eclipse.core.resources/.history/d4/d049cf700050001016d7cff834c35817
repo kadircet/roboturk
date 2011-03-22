@@ -1,0 +1,69 @@
+/*
+ * SSLGlobalStateSubscriber.cpp
+ *
+ *  Created on: Mar 14, 2011
+ *      Author: kadir
+ */
+
+#include "SSLGlobalStateSubscriber.h"
+
+void SSLGlobalStateSubscriber::callback(const ssl_msgs::GlobalState::ConstPtr &global_msg){
+	if(!first_data_arrived)
+		first_data_arrived = true;
+	global_state = *global_msg;
+}
+
+SSLGlobalStateSubscriber::SSLGlobalStateSubscriber(const ros::NodeHandle& n):nh(n) {
+	first_data_arrived = false;
+	sub = nh.subscribe("global_state", 1000,	&SSLGlobalStateSubscriber::callback, this);
+}
+
+SSLGlobalStateSubscriber::~SSLGlobalStateSubscriber() {
+	// TODO Auto-generated destructor stub
+}
+
+void SSLGlobalStateSubscriber::Print(){
+	for(unsigned int i=0; i<global_state.balls.size();i++){
+		cout<<"ball "<<i<<":";
+		cout<<(float)global_state.balls[i].position.x<<"\t";
+		cout<<(float)global_state.balls[i].position.y<<"\t";
+		cout<<(float)global_state.balls[i].confidence<<"\t";
+		cout<<(float)global_state.balls[i].area<<"\t";
+		cout<<(float)global_state.balls[i].pix_coord.x<<"\t";
+		cout<<(float)global_state.balls[i].pix_coord.y<<endl;
+	}
+
+
+	for(unsigned int i=0; i<global_state.robots_yellow.size();i++){
+
+		if(global_state.robots_yellow[i].team != YELLOW){
+			cerr<<"wrong team color enumaration"<<endl;
+			cerr<<"Exiting"<<endl;
+			exit(0);
+		}
+		cout<<"y("<<(int)global_state.robots_yellow[i].id<<")"<<"\t";
+		cout<<"x:"<<(float)global_state.robots_yellow[i].pose.x<<"\t";
+		cout<<"y:"<<(float)global_state.robots_yellow[i].pose.y<<"\t";
+		cout<<"theta:"<<(float)global_state.robots_yellow[i].pose.theta<<"\t";
+		cout<<"conf:"<<(float)global_state.robots_yellow[i].confidence<<"\t";
+		cout<<"state:"<<(int)global_state.robots_yellow[i].state<<endl;
+	}
+	for(unsigned int i=0; i<global_state.robots_blue.size();i++){
+
+		if(global_state.robots_blue[i].team != BLUE){
+			cerr<<"wrong team color enumaration"<<endl;
+			cerr<<"Exiting"<<endl;
+			exit(0);
+		}
+		cout<<"b("<<(int)global_state.robots_blue[i].id<<")"<<"\t";
+		cout<<"x:"<<(float)global_state.robots_blue[i].pose.x<<"\t";
+		cout<<"y:"<<(float)global_state.robots_blue[i].pose.y<<"\t";
+		cout<<"theta:"<<(float)global_state.robots_blue[i].pose.theta<<"\t";
+		cout<<"conf:"<<(float)global_state.robots_blue[i].confidence<<"\t";
+		cout<<"state:"<<(int)global_state.robots_blue[i].state<<endl;
+	}
+}
+
+ssl_msgs::GlobalState SSLGlobalStateSubscriber::GetGlobalState(){
+	return global_state;
+}

@@ -1,0 +1,67 @@
+/*
+ * SSLGamePlanner.cpp
+ *
+ *  Created on: Mar 14, 2011
+ *      Author: kadir
+ */
+
+#include "SSLGamePlanner.h"
+
+SSLGamePlanner::SSLGamePlanner(const ros::NodeHandle& n)
+: SSLGlobalStateSubscriber(n) {
+	pub = nh.advertise<ssl_msgs::TeamPoseCommand>("team_pose_command", 1000);
+}
+
+SSLGamePlanner::~SSLGamePlanner() {
+	// TODO Auto-generated destructor stub
+}
+
+void	SSLGamePlanner::PrintTargetPoses(){
+	cout<<"**"<<team_target_poses.target_poses.size()<<"**"<<endl;
+	for(unsigned int i=0;i<team_target_poses.target_poses.size();i++){
+		cout<<"x:"<<team_target_poses.target_poses[i].x
+			<<"y:"<<team_target_poses.target_poses[i].y<<endl;
+	}
+}
+
+void	SSLGamePlanner::UpdateTargetPoses(){
+	if(first_data_arrived){
+
+		team_target_poses.target_poses.resize(
+				global_state.robots_blue.size()+
+				global_state.robots_yellow.size()+
+				global_state.balls.size());
+
+		//send yellow zero robot to the ball
+		team_target_poses.target_poses[0].x=
+				global_state.balls[0].position.x;
+		team_target_poses.target_poses[0].y=
+				global_state.balls[0].position.y;
+
+		for(unsigned int i=1;i<global_state.robots_yellow.size();i++){
+			team_target_poses.target_poses[i]=
+					global_state.robots_yellow[i].pose;
+		}
+		for(unsigned int i=0; i<global_state.robots_blue.size(); i++){
+			team_target_poses.target_poses
+			[i+global_state.robots_yellow.size()]=
+					global_state.robots_blue
+					[i-global_state.robots_yellow.size()].pose;
+		}
+	}
+}
+
+bool SSLGamePlanner::Spin(){
+	while(nh.ok())
+	{
+		if(first_data_arrived){
+			UpdateTargetPoses();
+			PrintTargetPoses();
+			if(pub.getNumSubscribers()>0){
+				pub.publish(team_target_poses);
+			}
+		}
+		ros::spinOnce();
+	}
+	return true;
+}

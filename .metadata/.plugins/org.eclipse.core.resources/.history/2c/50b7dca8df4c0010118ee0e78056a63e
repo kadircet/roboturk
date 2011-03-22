@@ -1,0 +1,16 @@
+#Sat Mar 12 21:33:50 EET 2011
+eclipse.preferences.version=1
+environment/project/0.1448070652/PATH/delimiter=\:
+environment/project/0.1448070652/PATH/operation=replace
+environment/project/0.1448070652/PATH/value=/opt/ros/cturtle/ros/bin\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/usr/games\:/opt/yarp2/build/bin\:/opt/iCub/main/build/bin
+environment/project/0.1448070652/PYTHONPATH/delimiter=\:
+environment/project/0.1448070652/PYTHONPATH/operation=append
+environment/project/0.1448070652/PYTHONPATH/value=/opt/ros/cturtle/ros/core/roslib/src\:
+environment/project/0.1448070652/ROS_PACKAGE_PATH/delimiter=\:
+environment/project/0.1448070652/ROS_PACKAGE_PATH/operation=append
+environment/project/0.1448070652/ROS_PACKAGE_PATH/value=/opt/ros/cturtle/stacks\:/home/kadir/interconnection/workspace/kovan/iros_2011/e_workspace\:/home/kadir/interconnection/workspace/kovan/iros_2011/ros_trials/urdf_trials\:/home/kadir/interconnection/workspace/kovan/iros_2011/ros_trials\:/home/kadir/interconnection/workspace/robocup/system_design/robocup_ssl\:/home/kadir/interconnection/workspace/kovan/iros_2011/e_workspace\:/home/kadir/interconnection/workspace/dummy_codes\:/home/kadir/interconnection/workspace/robocup/webots_projects/cs548/controllers\:/home/kadir/interconnection/workspace/kovan/pr\:/home/kadir/interconnection/workspace/robocup/2011
+environment/project/0.1448070652/ROS_ROOT/delimiter=\:
+environment/project/0.1448070652/ROS_ROOT/operation=append
+environment/project/0.1448070652/ROS_ROOT/value=/opt/ros/cturtle/ros
+environment/project/0.1448070652/append=true
+environment/project/0.1448070652/appendContributed=true

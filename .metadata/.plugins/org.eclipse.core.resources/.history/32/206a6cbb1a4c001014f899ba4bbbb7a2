@@ -1,0 +1,17 @@
+/*
+ * SSLSimVision.cpp
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+#include "SSLSimVision.h"
+
+SSLSimVision::SSLSimVision(const ros::NodeHandle& n):nh(n) {
+	// TODO Auto-generated constructor stub
+
+}
+
+SSLSimVision::~SSLSimVision() {
+	// TODO Auto-generated destructor stub
+}

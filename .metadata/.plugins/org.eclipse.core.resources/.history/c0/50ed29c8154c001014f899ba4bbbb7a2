@@ -1,0 +1,28 @@
+/*
+ * SSLSimVision.h
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMVISION_H_
+#define SSLSIMVISION_H_
+
+#include "ros/ros.h"
+#include "ssl_msgs/GlobalState.h"
+#include <webots/Robot.hpp>
+
+class SSLSimVision {
+
+private:
+	webots::Emitter* emitter;
+
+public:
+
+	bool	Send(ssl_msgs::GlobalState & global_state);
+
+	SSLSimVision();
+	virtual ~SSLSimVision();
+};
+
+#endif /* SSLSIMVISION_H_ */

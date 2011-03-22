@@ -1,0 +1,216 @@
+/*
+ * SSLSimVision.cpp
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+//#include "ssl_sim_vision.h"
+#include "SSLSimVision.h"
+#include "sstream"
+
+#define TIME_STEP 8
+
+string SSLSimVision::getRobotName(const int& robot_index, TEAM team)
+{
+
+  string robot_name;
+  if (team == YELLOW)
+    robot_name.assign("Y");
+  else
+    robot_name.assign("B");
+  stringstream s;
+  s << robot_index;
+  robot_name.append(s.str());
+  return robot_name;
+}
+
+void SSLSimVision::updateBall(ssl_msgs::GlobalState & global_state)
+{
+  webots::Node* ball_node = NULL;
+  ball_node = getFromDef("BALL");
+  if (ball_node != NULL)
+  {
+    ssl_msgs::BallState ball;
+    ball.position.x = ball_node->getField("translation")->getSFVec3f()[2];
+    ball.position.y = ball_node->getField("translation")->getSFVec3f()[0];
+    ball.confidence = 1.0;
+    while (global_state.balls.size() > 0)
+      global_state.balls.pop_back();
+    global_state.balls.clear();
+    global_state.balls.push_back(ball);
+  }
+}
+
+void SSLSimVision::updateTeam(ssl_msgs::GlobalState & global_state, TEAM team)
+{
+  webots::Node* robot_node = NULL;
+  for (int i = 0; i < N_ROBOTS_PER_TEAM; i++)
+  {
+
+    ssl_msgs::GlobalRobotState state;
+    state.confidence = 1.0;
+    state.id = i;
+    robot_node = getFromDef(getRobotName(i, team));
+    //TODO: check whether a robot is in no_move state
+    //e.g. no move for 5 seconds
+    if (robot_node != NULL)
+    {
+      state.state = IN_GAME;
+      //Webots->SSLVision coordinate frame transformation
+      //ssl_vision.x = webots.z
+      //ssl_vision.y = webots.x
+      //ssl_vision.z = webots.y
+      //webots.orientation should be around y axis, it is similar to the
+      //sl_vision's being around z axis
+      state.pose.x = robot_node->getField("translation")->getSFVec3f()[2];//webots.z->x
+      state.pose.y = robot_node->getField("translation")->getSFVec3f()[0];//webots.x->y
+      state.pose.theta = robot_node->getField("rotation")->getSFRotation()[3];
+    }
+    else
+      state.state = OUT_OF_GAME;
+
+    if (team == YELLOW)
+    {
+      state.team = YELLOW;
+      global_state.robots_yellow[i] = state;
+    }
+    else
+    {
+      state.team = BLUE;
+      global_state.robots_blue[i] = state;
+    }
+  }
+}
+
+void SSLSimVision::print(const ssl_msgs::GlobalState & global_state)
+{
+  printTeam(global_state, YELLOW);
+  printTeam(global_state, BLUE);
+  printBall(global_state);
+}
+
+void SSLSimVision::printBall(const ssl_msgs::GlobalState & global_state)
+{
+  for (unsigned int i = 0; i < global_state.balls.size(); i++)
+  {
+    cout << "ball " << i << ":";
+    cout << (float)global_state.balls[i].position.x << "\t";
+    cout << (float)global_state.balls[i].position.y << "\t";
+    cout << (float)global_state.balls[i].confidence << "\t";
+    cout << (float)global_state.balls[i].area << "\t";
+    cout << (float)global_state.balls[i].pix_coord.x << "\t";
+    cout << (float)global_state.balls[i].pix_coord.y << endl;
+  }
+}
+
+void SSLSimVision::printTeam(const ssl_msgs::GlobalState & global_state, TEAM team)
+{
+  std::vector<ssl_msgs::GlobalRobotState> team_state;
+  if(team == YELLOW)
+    team_state=global_state.robots_yellow;
+  else if(team == BLUE)
+    team_state=global_state.robots_blue;
+  else{
+    std::cerr<<"wrong team input. Exiting!"<<std::endl;
+    exit(0);
+  }
+  for(unsigned int i=0; i<team_state.size();i++){
+    if(team == YELLOW)
+      cout<<"y("<<(int)team_state[i].id<<")"<<"\t";
+    else
+      cout<<"b("<<(int)team_state[i].id<<")"<<"\t";
+
+    cout<<"x:"<<(float)team_state[i].pose.x<<"\t";
+    cout<<"y:"<<(float)team_state[i].pose.y<<"\t";
+    cout<<"theta:"<<(float)team_state[i].pose.theta<<"\t";
+    cout<<"conf:"<<(float)team_state[i].confidence<<"\t";
+    if(team_state[i].state == IN_GAME)
+      cout<<"state:"<<"IN_GAME"<<endl;
+    else if(team_state[i].state == OUT_OF_GAME)
+      cout<<"state:"<<"OUT_OF_GAME"<<endl;
+    else if(team_state[i].state == NO_MOVE)
+      cout<<"state:"<<"NO_MOVE"<<endl;
+    else{
+      std::cerr<<"wrong game state for a robot. Exiting!"<<std::endl;
+      exit(0);
+    }
+  }
+}
+
+SSLSimVision::SSLSimVision(const ros::NodeHandle& n) :
+  nh(n)
+{
+  n_subscribers = 0;
+  pub = nh.advertise<ssl_msgs::GlobalState> ("global_state", 1000);
+}
+
+void SSLSimVision::Update(ssl_msgs::GlobalState & global_state)
+{
+  updateTeam(global_state, YELLOW);
+  updateTeam(global_state, BLUE);
+  updateBall(global_state);
+}
+
+bool SSLSimVision::Send(const ssl_msgs::GlobalState& global_state)
+{
+  if (pub.getNumSubscribers() > 0)
+  {
+    if (pub.getNumSubscribers() > n_subscribers)
+    {
+      n_subscribers = pub.getNumSubscribers();
+      cout << "a node SUBSCRIBED TO the global_state topic" << endl;
+    }
+    else if (pub.getNumSubscribers() < n_subscribers)
+    {
+      n_subscribers = pub.getNumSubscribers();
+      cout << "a node UNSUBSCRIBED FROM the global_state topic" << endl;
+    }
+
+//    cout << "Vision server sent:" << endl;
+    pub.publish(global_state);
+    //print(global_state);
+  }
+}
+
+void SSLSimVision::Run()
+{
+  ssl_msgs::GlobalState global_state;
+  Init(global_state);
+  while (nh.ok())
+  {
+    //cout<<"updating"<<endl;
+    ros::spinOnce();
+    Update(global_state);
+    //print(global_state);
+    Send(global_state);
+    if (step(TIME_STEP) == -1)
+      break;
+  }
+
+}
+
+void SSLSimVision::Init(ssl_msgs::GlobalState & global_state)
+{
+  ssl_msgs::GlobalRobotState state;
+  state.confidence = 0;
+  state.height = 0;
+  state.id = 0;
+  state.pix_coord.x = 0;
+  state.pix_coord.y = 0;
+  state.pose.x = 0;
+  state.pose.y = 0;
+  state.pose.theta = 0;
+  state.state = 0;
+  state.team = 0;
+  for (int i = 0; i < N_ROBOTS_PER_TEAM; i++)
+  {
+    global_state.robots_blue.push_back(state);
+    global_state.robots_yellow.push_back(state);
+  }
+}
+
+SSLSimVision::~SSLSimVision()
+{
+  ros::shutdown();
+}

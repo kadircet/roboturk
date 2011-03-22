@@ -1,0 +1,7 @@
+
+**** Build of configuration Default for project visualization ****
+
+make 
+g++ -I"/usr/local/webots/include"  -DLINUX -fPIC -MM visualization.cpp > visualization.d
+g++ -c -I"/usr/local/webots/include" -Wall   -DLINUX -fPIC visualization.cpp
+g++ -shared -o visualization.so   visualization.o   "/usr/local/webots/resources/projects/default/plugins/physics/physics.o" 

@@ -1,0 +1,21 @@
+#include "webots/Supervisor.hpp"
+#include "webots/Emitter.hpp"
+
+#include "iostream"
+
+class DemoSupervisor : public webots::Supervisor{
+private:
+  webots::Emitter* emitter;
+
+public:
+  DemoSupervisor(){
+    emitter = getEmitter("emitter");
+  }
+
+
+}
+
+int main(){
+
+  return 0;
+}

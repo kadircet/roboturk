@@ -1,0 +1,10 @@
+#Sun Feb 20 12:50:43 EET 2011
+eclipse.preferences.version=1
+environment/project/0.17341888/WEBOTS_HOME_PATH/delimiter=\:
+environment/project/0.17341888/WEBOTS_HOME_PATH/operation=append
+environment/project/0.17341888/WEBOTS_HOME_PATH/value=/usr/local/webots
+environment/project/0.17341888/append=true
+environment/project/0.17341888/appendContributed=true
+environment/project/0.17341888/ld_library_path/delimiter=\:
+environment/project/0.17341888/ld_library_path/operation=append
+environment/project/0.17341888/ld_library_path/value=${LD_LIBRARY_PATH}

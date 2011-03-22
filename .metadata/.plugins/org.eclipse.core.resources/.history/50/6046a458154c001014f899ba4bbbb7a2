@@ -1,0 +1,17 @@
+/*
+ * SSLSimVision.h
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMVISION_H_
+#define SSLSIMVISION_H_
+
+class SSLSimVision {
+public:
+	SSLSimVision();
+	virtual ~SSLSimVision();
+};
+
+#endif /* SSLSIMVISION_H_ */

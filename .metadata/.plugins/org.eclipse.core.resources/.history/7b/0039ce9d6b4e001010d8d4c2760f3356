@@ -1,0 +1,17 @@
+/*
+ * SSLSimRefree.cpp
+ *
+ *  Created on: Mar 14, 2011
+ *      Author: kadir
+ */
+
+#include "SSLSimRefree.h"
+
+SSLSimRefree::SSLSimRefree() {
+	// TODO Auto-generated constructor stub
+
+}
+
+SSLSimRefree::~SSLSimRefree() {
+	// TODO Auto-generated destructor stub
+}

@@ -1,0 +1,34 @@
+/*
+ * SSLSimVision.h
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMVISION_H_
+#define SSLSIMVISION_H_
+
+#include "ros/ros.h"
+#include "ssl_msgs/GlobalState.h"
+#include <webots/Supervisor.hpp>
+
+class SSLSimVision /*: public webots::Supervisor*/{
+
+private:
+	ros::NodeHandle nh;
+	ros::Publisher  pub;
+public:
+
+	SSLSimVision(const ros::NodeHandle& n);
+//	SSLSimVision();
+	virtual ~SSLSimVision();
+
+	void	Update(ssl_msgs::GlobalState & global_state);
+	bool	Send(const ssl_msgs::GlobalState & global_state);
+	void	Run();
+	void	Init();
+
+
+};
+
+#endif /* SSLSIMVISION_H_ */

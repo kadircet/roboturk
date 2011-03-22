@@ -1,0 +1,15 @@
+<package>
+  <description brief="demo_controller">
+
+     demo_controller
+
+  </description>
+  <author>Kadir</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/demo_controller</url>
+  <depend package="roscpp"/>
+
+</package>
+
+

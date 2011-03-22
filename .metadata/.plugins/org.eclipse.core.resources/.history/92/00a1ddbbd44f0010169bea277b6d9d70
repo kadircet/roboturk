@@ -1,0 +1,40 @@
+/*
+ * SSLSimTransceiver.h
+ *
+ *  Created on: Mar 15, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMTRANSCEIVER_H_
+#define SSLSIMTRANSCEIVER_H_
+
+#include "ros/ros.h"
+#include "ssl_msgs/MotorCommand.h"
+#include "ssl_msgs/TeamCommand.h"
+
+#define PI 3.3.14159265
+
+class SSLSimTransceiver {
+private:
+	ros::NodeHandle nh;
+	bool first_command_arrived;
+
+	ros::Publisher pub_actuation_command;
+	ssl_msgs::MotorCommand actuation_commands;
+
+	ros::Subscriber sub_command;
+	ssl_msgs::TeamCommand team_command;
+	void teamCommandCallback(
+			const ssl_msgs::TeamCommand::ConstPtr &target_msg);
+
+	ssl_msgs::MotorCommand GenerateActuatorCommands();
+	void SetMotorVelocities(float speed_of_movement,float direction_of_movement);
+
+public:
+	SSLSimTransceiver(const ros::NodeHandle& n);
+	bool 	Spin();
+	void	Send();
+	virtual ~SSLSimTransceiver();
+};
+
+#endif /* SSLSIMTRANSCEIVER_H_ */

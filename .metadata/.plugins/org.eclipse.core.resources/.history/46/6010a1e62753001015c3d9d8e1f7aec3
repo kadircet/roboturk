@@ -1,0 +1,107 @@
+/*
+ * SSLPathPlanner.h
+ *
+ *  Created on: Mar 13, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLPATHPLANNER_H_
+#define SSLPATHPLANNER_H_
+
+#include "SSLGlobalStateSubscriber.h"
+#include "ssl_msgs/GlobalState.h"
+#include "ssl_msgs/TeamPoseCommand.h"
+#include "ssl_msgs/TeamCommand.h"
+#include "ssl_msgs/Visualization.h"
+#include "ros/ros.h"
+#include "geometry_msgs/Vector3.h"
+
+#include <Eigen/Core>
+#include <Eigen/Geometry>
+
+#include "iostream"
+#include "string"
+#include "fstream"
+
+#define REPULSION_DIST_THRESH 0.5
+#define CONIC_QUADRATIC_THRESH 0.5
+#define REPULSION_GAIN 1
+#define ATTRACTION_GAIN 50
+
+#define KAPPA 8
+#define LAMBDA 1
+#define PI 3.14159265
+
+using namespace std;
+
+enum FORCE
+{
+  REPULSIVE, ATTRACTIVE
+};
+
+enum NavMethod
+{
+  ATT_REP, NAV_FNC
+};
+
+class SSLPathPlanner : public SSLGlobalStateSubscriber
+{
+private:
+  float lambda;
+  int   kappa;
+  ssl_msgs::GlobalRobotState robot_state;
+  geometry_msgs::Pose2D target_pose;
+
+  ros::NodeHandle nh;
+  ros::Subscriber sub_poses;
+  ssl_msgs::TeamPoseCommand team_target_poses;
+  ros::Publisher pub_command;
+  ssl_msgs::TeamCommand team_command;
+
+  ros::Publisher pub_viz;
+  ssl_msgs::Visualization viz;
+
+  bool first_poses_arrived;
+
+  void poseCallback(const ssl_msgs::TeamPoseCommand::ConstPtr &target_pose_msg);
+  bool isInField(const ssl_msgs::GlobalRobotState& robot_state);
+  bool isItself(const ssl_msgs::GlobalRobotState& robot_state, const ssl_msgs::GlobalRobotState& other_robot_state);
+  float getDistance(const geometry_msgs::Pose2D robot_pose, const geometry_msgs::Pose2D other_robot_pose);
+  Eigen::Vector3f calculateRepulsiveForce(const geometry_msgs::Pose2D& effected,
+                                                 const geometry_msgs::Pose2D& effector);
+  Eigen::Vector3f calculateAttractiveForce(const geometry_msgs::Pose2D& effected,
+                                                  const geometry_msgs::Pose2D& effector);
+  Eigen::Vector3f calculateForce(const geometry_msgs::Pose2D& effected, const geometry_msgs::Pose2D& effector,
+                                        FORCE type = ATTRACTIVE);
+  Eigen::Vector3f calculateForceField(const ssl_msgs::GlobalRobotState& robot_state,
+                                             const geometry_msgs::Pose2D& target_pose);
+  double getB_0();
+  double getB_i(int i);
+  double getB();
+  double getB(int except_i);
+  Eigen::Vector3f getGradientB_0();
+  Eigen::Vector3f getGradientB_i(int i);
+  Eigen::Vector3f getGradientB();
+  float getD_i(int i);
+  float getD();
+  double getD_to_power(float power);
+  Eigen::Vector3f getGradientD();
+  Eigen::Vector3f calcGradientNavFnc();
+
+  double calcNavFnc();
+  void  saveNavFncData();
+
+public:
+
+  void Plan(
+      const int& id, const TeamColor& team,
+      const geometry_msgs::Pose2D& target_pose,
+      NavMethod navigation_method);
+
+  SSLPathPlanner(ros::NodeHandle& n);
+  virtual ~SSLPathPlanner();
+  bool Spin();
+  void Send();
+};
+
+#endif /* SSLPATHPLANNER_H_ */

@@ -1,0 +1,9 @@
+#include "webots/Supervisor.hpp"
+#include "webots/Emitter.hpp"
+
+#include "iostream"
+
+int main(){
+
+  return 0;
+}

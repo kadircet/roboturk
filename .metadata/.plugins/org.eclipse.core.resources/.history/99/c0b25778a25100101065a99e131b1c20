@@ -1,0 +1,17 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Mar 14, 2011
+ *      Author: kadir
+ */
+
+#include "SSLGlobalStateSubscriber.h"
+
+int main()
+{
+
+	ros::NodeHandle n;
+	SSLGlobalStateSubscriber s(n);
+
+	return 0;
+}
