@@ -1,0 +1,18 @@
+<package>
+  <description brief="ssl_path_planner">
+
+     ssl_path_planner
+
+  </description>
+  <author>Kadir</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ssl_path_planner</url>
+  <depend package="roscpp"/>
+  <depend package="ssl_msgs"/>
+  <depend package="ssl_comm_primitives"/>
+  <depend package="eigen" />
+
+</package>
+
+

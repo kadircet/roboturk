@@ -1,0 +1,10 @@
+#include "SSLSimRobot.h"
+
+
+int main(int argc, char** argv)
+{
+  SSLSimRobot* robot = new SSLSimRobot();
+  robot->Spin();
+
+  return 0;
+}

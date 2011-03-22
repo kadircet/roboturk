@@ -1,0 +1,47 @@
+/*
+ * SSLGamePlanner.cpp
+ *
+ *  Created on: Mar 14, 2011
+ *      Author: kadir
+ */
+
+#include "SSLGamePlanner.h"
+
+SSLGamePlanner::SSLGamePlanner(int argc, char **argv,const ros::NodeHandle& n)
+: SSLGlobalStateSubscriber(n) {
+	pub = nh.advertise<ssl_msgs::TeamPoseCommand>("team_pose_command", 1000);
+}
+
+SSLGamePlanner::~SSLGamePlanner() {
+	// TODO Auto-generated destructor stub
+}
+
+void	SSLGamePlanner::UpdateTargetPoses(){
+	if(first_data_arrived){
+
+		team_target_poses.target_poses.resize(
+				global_state.robots_blue.size()+
+				global_state.robots_yellow.size()+
+				global_state.balls.size());
+//		team_target_poses.robot_target_poses.resize(
+//				global_state.robots_blue.size()+
+//				global_state.robots_yellow.size()+
+//				global_state.balls.size());
+
+		for(int i=0;i<5;i++){
+			team_target_poses.robot_target_poses[i]=
+					global_state.robots_yellow[i].pose;
+		}
+	}
+}
+
+bool SSLGamePlanner::Spin(){
+	while(nh.ok())
+	{
+		if(first_data_arrived && pub.getNumSubscribers()>0){
+			pub.publish(team_target_poses);
+		}
+		ros::spinOnce();
+	}
+	return true;
+}

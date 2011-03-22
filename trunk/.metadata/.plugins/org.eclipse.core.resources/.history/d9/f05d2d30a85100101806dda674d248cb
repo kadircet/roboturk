@@ -1,0 +1,11 @@
+#include "webots/Supervisor.hpp"
+#include "webots/Emitter.hpp"
+
+#include "iostream"
+
+int main(){
+  webots::Emitter* emitter;
+  emitter = getEmitter("emitter");
+
+  return 0;
+}

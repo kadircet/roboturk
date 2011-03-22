@@ -1,0 +1,9 @@
+#include "SSLSimRobot.h"
+#include "ros/ros.h"
+
+
+int main(){
+  ros::NodeHandle n;
+  SSLSimRobot* robot = new SSLSimRobot();
+	return 0;
+}

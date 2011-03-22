@@ -1,0 +1,42 @@
+#include "webots/Supervisor.hpp"
+#include "webots/Emitter.hpp"
+#include "ros/ros.h"
+
+#include "iostream"
+#include "string"
+
+#define TIME_STEP 32
+
+class DemoSupervisor : public webots::Supervisor{
+private:
+  webots::Emitter* emitter;
+  ros::NodeHandle nh;
+  int msg;
+
+public:
+  DemoSupervisor(const ros::NodeHandle& n):nh(n){
+    emitter = getEmitter("emitter");
+  }
+  void Send(){
+    int i=1;
+    emitter->send(&i,sizeof(int));
+    //delete[] webots_msg;
+  }
+  void Spin(){
+    while(nh.ok()){
+      Send();
+      ros::spinOnce();
+      if (step(TIME_STEP) == -1) break;
+    }
+  }
+};
+
+int main(int argc, char** argv){
+
+  ros::init(argc, argv, "demo_supervisor");
+  ros::NodeHandle n;
+  DemoSupervisor* supervisor = new DemoSupervisor(n);
+  supervisor->Spin();
+
+  return 0;
+}

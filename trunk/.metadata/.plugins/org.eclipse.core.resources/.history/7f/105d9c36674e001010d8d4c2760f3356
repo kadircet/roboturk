@@ -1,0 +1,17 @@
+/*
+ * SSLSimRefree.h
+ *
+ *  Created on: Mar 14, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMREFREE_H_
+#define SSLSIMREFREE_H_
+
+class SSLSimRefree {
+public:
+	SSLSimRefree();
+	virtual ~SSLSimRefree();
+};
+
+#endif /* SSLSIMREFREE_H_ */

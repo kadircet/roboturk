@@ -1,0 +1,20 @@
+/*
+ * SSLSimVisualizer.h
+ *
+ *  Created on: Mar 17, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMVISUALIZER_H_
+#define SSLSIMVISUALIZER_H_
+
+#include "ros/ros.h"
+
+class SSLSimVisualizer
+{
+public:
+  SSLSimVisualizer();
+  virtual ~SSLSimVisualizer();
+};
+
+#endif /* SSLSIMVISUALIZER_H_ */

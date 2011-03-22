@@ -1,0 +1,16 @@
+<package>
+  <description brief="ssl_sim_robot">
+
+     ssl_sim_robot
+
+  </description>
+  <author>Kadir</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ssl_sim_robot</url>
+  <depend package="roscpp"/>
+  <depend package="ssl_msgs"/>
+
+</package>
+
+

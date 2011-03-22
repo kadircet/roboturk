@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300640400104
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300640400105
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300641086514
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300641087838
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642763484
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642764236
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642764248
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642764544
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642893104
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642893670
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642895268
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642895372
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642895759
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300642895848
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300644395912
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300644397995
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300644398149
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300644405181
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300644405829
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300644423355
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300644428878
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300644435389
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.findReplace",1300644436913
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300644436947
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300644441933
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.lineStart",1300644443790
+executed,command,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1300644444442
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300644445004
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300644449371
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300644462204
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645741718
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645747210
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1300645749288
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645750876
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645751209
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645753280
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645758155
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645758157
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645758158
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645766424
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645766426
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645766426
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645802742
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645802745
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645802747
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645804157
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645804159
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645804160
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645807198
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645808137
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300645812308
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645822791
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645822792
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645822793
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645822914
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645822916
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645822917
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645823367
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645823369
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645823369
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645830499
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645830500
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645831418
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645831549
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300645831577
+no handler,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.findReplace",1300645834041
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645836557
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.findReplace",1300645837061
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645837094
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645841989
+executed,command,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1300645844867
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300645845756
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645849881
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300645855563
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645872510
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645872602
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300645872630
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645873789
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300645873819
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1300645875670
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645877214
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645893633
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645893635
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645895833
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645895834
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645897542
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645897543
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645899830
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645899831
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645900839
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645900883
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645901129
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300645905986
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908646
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908648
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908649
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908727
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908729
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908730
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908789
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908792
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300645908793
+closed,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645908910
+closed,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645908997
+closed,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645914676
+closed,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645914707
+closed,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645914796
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300645917567
+started,bundle,org.eclipse.mylyn.resources.ui,3.4.0.v20100608-0100-e3x,"org.eclipse.mylyn.resources.ui",1300645917835
+started,bundle,org.eclipse.mylyn.wikitext.tasks.ui,1.3.0.v20100608-0100-e3x,"org.eclipse.mylyn.wikitext.tasks.ui",1300645917879
+started,bundle,org.eclipse.mylyn.wikitext.core,1.3.0.v20100608-0100-e3x,"org.eclipse.mylyn.wikitext.core",1300645917971
+closed,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645918031
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645920103
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645922089
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645923337
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645924614
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645939959
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.lineStart",1300645943467
+executed,command,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1300645944085
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.lineStart",1300645945260
+executed,command,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1300645945763
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300645946935
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300645947481
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645952937
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645979265
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300645981001
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646008048
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646012380
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646016877
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646017435
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646017877
+executed,command,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1300646031496
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300646035916
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300646037553
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646039264
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646088007
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300646152952
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646154735
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646189043
+executed,command,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.edit.text.c.toggle.comment",1300646235925
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300646237479
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300646237847
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646250446
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646289446
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646392677
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646436532
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300646549186
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300646566282
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300646699638
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300646747542
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646750747
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646798615
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646809095
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646835114
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300646835250
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300646835353
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646836735
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646845452
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646849745
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646933861
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300646934443
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647008891
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300647066836
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.lineStart",1300647067316
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.copy",1300647067632
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.lineEnd",1300647068872
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647069337
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300647070599
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647070603
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647070977
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647071020
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647071522
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647071702
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647072726
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300647076014
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300647079863
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647081821
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647099145
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647099982
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647223406
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordNext",1300647240614
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.wordNext",1300647241366
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.wordNext",1300647241525
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.copy",1300647242452
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647243672
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647246265
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.lineStart",1300647250678
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.copy",1300647250958
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.lineEnd",1300647251220
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.lineEnd",1300647251764
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647252299
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647252628
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647252788
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647252932
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647253060
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647253172
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647253301
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647253536
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647253541
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordPrevious",1300647253668
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.deletePreviousWord",1300647254198
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.select.wordPrevious",1300647256053
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.copy",1300647256328
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordNext",1300647256788
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordNext",1300647256916
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordNext",1300647257012
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordNext",1300647257268
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.goto.wordNext",1300647257556
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.0.v20100520-0800,"org.eclipse.ui.edit.text.deletePreviousWord",1300647258007
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647258200
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300647258784
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300647259695
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300647266963
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.copy",1300647281412
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647282171
+opened,view,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.views.ProblemView",1300647283367
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.copy",1300647288004
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.edit.paste",1300647289235
+executed,command,org.eclipse.ui,3.6.0.I20100603-1100,"org.eclipse.ui.file.save",1300647290720
+executed,command,org.eclipse.ui.ide,3.6.0.I20100601-0800,"org.eclipse.ui.project.buildAll",1300647291555
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647295894
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647363123
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300647424779
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647428003
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647436838
+opened,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647443256
+activated,perspective,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.CPerspective",1300647443256
+opened,editor,com.aptana.terminal,3.0.0.1289004511,"com.aptana.terminal.TerminalEditor",1300647443412
+activated,editor,com.aptana.terminal,3.0.0.1289004511,"com.aptana.terminal.TerminalEditor",1300647443427
+deactivated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647443538
+activated,workbench,org.eclipse.ui.workbench,3.6.0.I20100603-1100,"",1300647443550
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300647443870
+activated,view,org.eclipse.ui.views,3.5.0.I20100527-0800,"org.eclipse.ui.views.ContentOutline",1300647446927
+activated,editor,com.aptana.terminal,3.0.0.1289004511,"com.aptana.terminal.TerminalEditor",1300647446961
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300647448571
+closed,editor,com.aptana.terminal,3.0.0.1289004511,"com.aptana.terminal.TerminalEditor",1300647448571
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300647450993
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647452796
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647452927
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300647452957
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300647453725
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.ui.navigator"".",1300647453727
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647454824
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647454956
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300647454986
+opened,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647455756
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647455899
+activated,view,org.eclipse.ui.navigator.resources,3.4.200.I20100601-0800,"org.eclipse.ui.navigator.ProjectExplorer",1300647455928
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647456955
+activated,editor,org.eclipse.cdt.ui,5.2.0.201006141710,"org.eclipse.cdt.ui.editor.CEditor",1300647459877

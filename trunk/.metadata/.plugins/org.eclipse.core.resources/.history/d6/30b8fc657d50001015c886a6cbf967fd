@@ -1,0 +1,25 @@
+/*
+ * SSLSimVisualizer.h
+ *
+ *  Created on: Mar 17, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMVISUALIZER_H_
+#define SSLSIMVISUALIZER_H_
+
+#include "ros/ros.h"
+#include <webots/Supervisor.hpp>
+#include "ssl_msgs/Visualization.h"
+
+class SSLSimVisualizer
+{
+private:
+  ros::NodeHandle nh;
+  ssl_msgs::Visualization viz_msg;
+public:
+  SSLSimVisualizer(const ros::NodeHandle& n);
+  virtual ~SSLSimVisualizer();
+};
+
+#endif /* SSLSIMVISUALIZER_H_ */

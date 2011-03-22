@@ -1,0 +1,18 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Mar 17, 2011
+ *      Author: kadir
+ */
+
+#include "SSLSimVisualizer.h"
+
+int main()
+{
+  cout<<"ROS node is initialized"<<endl;
+  ros::init(argc, argv, "ssl_sim_vision");
+  ros::NodeHandle n;
+  SSLSimVisualizer* ssl_sim_visualizer = new SSLSimVisualizer(n);
+  ssl_sim_visualizer->Spin();
+  return 0;
+}

@@ -1,0 +1,14 @@
+#include "SSLSimRobot.h"
+#include "ros/ros.h"
+
+
+int main(int argc, char** argv)
+{
+  std::cout<<"ROS node is initialized"<<std::endl;
+  ros::init(argc, argv, "ssl_sim_robot");
+  ros::NodeHandle n;
+  SSLSimRobot* robot = new SSLSimRobot(n);
+  robot->Spin();
+
+  return 0;
+}

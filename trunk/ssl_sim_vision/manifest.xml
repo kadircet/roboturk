@@ -1,0 +1,16 @@
+<package>
+  <description brief="ssl_sim_vision">
+
+     ssl_sim_vision
+
+  </description>
+  <author>Kadir</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ssl_sim_vision</url>
+  <depend package="roscpp"/>
+  <depend package="ssl_msgs"/>
+
+</package>
+
+

@@ -1,0 +1,60 @@
+/*
+ * SSLSimVision.h
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+#ifndef SSLSIMVISION_H_
+#define SSLSIMVISION_H_
+
+#include "ros/ros.h"
+#include "ssl_msgs/GlobalState.h"
+#include <webots/Supervisor.hpp>
+
+#include "string"
+#include <iomanip>
+
+#define TIME_STEP 32
+#define N_ROBOTS_PER_TEAM 5
+
+using namespace std;
+
+enum TEAM{
+	YELLOW,
+	BLUE
+};
+
+enum RobotGameState{
+  OUT_OF_GAME,
+  IN_GAME,
+  NO_MOVE //sth fishy going on...
+};
+
+class SSLSimVision : public webots::Supervisor{
+
+private:
+	ros::NodeHandle nh;
+	ros::Publisher  pub;
+
+	int  n_subscribers;
+
+	string getRobotName(const int& robot_index, TEAM team);
+	void updateBall(ssl_msgs::GlobalState & global_state);
+	void updateTeam(ssl_msgs::GlobalState & global_state,TEAM team);
+	void printTeam(const ssl_msgs::GlobalState & global_state,TEAM team);
+	void printBall(const ssl_msgs::GlobalState & global_state);
+	void print(const ssl_msgs::GlobalState & global_state);
+public:
+
+	SSLSimVision(const ros::NodeHandle& n);
+
+	virtual ~SSLSimVision();
+
+	void	Update(ssl_msgs::GlobalState & global_state);
+	bool	Send(const ssl_msgs::GlobalState& global_state);
+	void	Run();
+	void	Init(ssl_msgs::GlobalState & global_state);
+};
+
+#endif /* SSLSIMVISION_H_ */

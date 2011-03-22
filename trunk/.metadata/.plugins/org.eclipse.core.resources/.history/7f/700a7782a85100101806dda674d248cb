@@ -1,0 +1,25 @@
+#include "webots/Supervisor.hpp"
+#include "webots/Emitter.hpp"
+
+#include "iostream"
+
+class DemoSupervisor : public webots::Supervisor{
+private:
+  webots::Emitter* emitter;
+  ros::NodeHandle nh;
+
+public:
+  DemoSupervisor(){
+    emitter = getEmitter("emitter");
+  }
+
+
+}
+
+int main(){
+
+  ros::init(argc, argv, "demo_supervisor");
+  ros::NodeHandle n;
+
+  return 0;
+}

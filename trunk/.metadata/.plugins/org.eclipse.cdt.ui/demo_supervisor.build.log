@@ -1,0 +1,67 @@
+/usr/bin/make 
+[ rosmake ] No package specified.  Building ['demo_supervisor']                 
+[ rosmake ] Packages requested are: ['demo_supervisor']                         
+[ rosmake ] Logging to directory/home/kadir/.ros/rosmake/rosmake_output-20110319-112641
+[ rosmake ] Expanded args ['demo_supervisor'] to:
+['demo_supervisor']           
+[ rosmake ] Checking rosdeps compliance for packages demo_supervisor.  This may take a few seconds.
+[ rosmake ] rosdep check passed all system dependencies in packages             
+[rosmake-0] Starting >>> rosbuild [ make ]                                      
+[rosmake-0] Finished <<< rosbuild ROS_NOBUILD in package rosbuild
+ No Makefile in package rosbuild
+[rosmake-1] Starting >>> cpp_common [ make ]                                    
+[rosmake-0] Starting >>> roslang [ make ]                                       
+[rosmake-0] Finished <<< roslang ROS_NOBUILD in package roslang
+ No Makefile in package roslang
+[ rosmake ] [ make ] [ cpp_common: 0.0 sec ]          [ 1 Active 3/14 Complete ]
+[rosmake-1] Finished <<< cpp_common ROS_NOBUILD in package cpp_common           
+[rosmake-0] Starting >>> roslib [ make ]                                        
+[rosmake-0] Finished <<< roslib ROS_NOBUILD in package roslib                   
+[rosmake-0] Starting >>> xmlrpcpp [ make ]                                      
+[rosmake-0] Finished <<< xmlrpcpp ROS_NOBUILD in package xmlrpcpp               
+[rosmake-0] Starting >>> std_msgs [ make ]                                      
+[rosmake-0] Finished <<< std_msgs ROS_NOBUILD in package std_msgs               
+[rosmake-0] Starting >>> rosgraph_msgs [ make ]                                 
+[rosmake-0] Finished <<< rosgraph_msgs ROS_NOBUILD in package rosgraph_msgs     
+[rosmake-1] Starting >>> roscpp_traits [ make ]                                 
+[rosmake-1] Finished <<< roscpp_traits ROS_NOBUILD in package roscpp_traits     
+[rosmake-1] Starting >>> rostime [ make ]                                       
+[rosmake-1] Finished <<< rostime ROS_NOBUILD in package rostime                 
+[rosmake-1] Starting >>> roscpp_serialization [ make ]                          
+[rosmake-1] Finished <<< roscpp_serialization ROS_NOBUILD in package roscpp_serialization
+[rosmake-1] Starting >>> rosconsole [ make ]                                    
+[rosmake-1] Finished <<< rosconsole ROS_NOBUILD in package rosconsole           
+[rosmake-1] Starting >>> roscpp [ make ]                                        
+[rosmake-1] Finished <<< roscpp ROS_NOBUILD in package roscpp                   
+[rosmake-1] Starting >>> demo_supervisor [ make ]                               
+[ rosmake ] [ make ] [ demo_supervisor: 0.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.5 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.6 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.7 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.8 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 0.9 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.5 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.6 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.7 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.8 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 1.9 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 2.0 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 2.1 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 2.2 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 2.3 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 2.4 sec ]    [ 1 Active 13/14 Complete ]
+[ rosmake ] [ make ] [ demo_supervisor: 2.5 sec ]    [ 1 Active 13/14 Complete ]
+[rosmake-1] Finished <<< demo_supervisor [PASS] [ 2.55 seconds ]                
+[ rosmake ] Results:                                                            
+[ rosmake ] Built 14 packages with 0 failures.                                  
+[ rosmake ] Summary output to directory                                         
+[ rosmake ] /home/kadir/.ros/rosmake/rosmake_output-20110319-112641             

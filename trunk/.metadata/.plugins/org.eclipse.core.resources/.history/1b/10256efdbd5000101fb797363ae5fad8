@@ -1,0 +1,60 @@
+/*
+ * SSLSimVisualizer.cpp
+ *
+ *  Created on: Mar 17, 2011
+ *      Author: kadir
+ */
+
+#include "SSLSimVisualizer.h"
+
+void SSLSimVisualizer::callback(const ssl_msgs::Visualization::ConstPtr &viz_msg){
+  if(!first_viz_data_arrived)
+    first_viz_data_arrived = true;
+  viz = *viz_msg;
+  ShowForceVector();
+}
+
+void SSLSimVisualizer::ShowForceVector(){
+
+  if(first_viz_data_arrived)//being extra-cautious
+  {
+    //first robot pose in ssl_vision frame
+    //then the force vector in deltaX, deltaY and deltaZ format
+    //w.r.t the robots 2D location but oriented w.r.t. global frame
+    float* tmp= new float[6];
+    tmp[0]=viz.robot_pose.x;
+    tmp[1]=viz.robot_pose.y;
+    tmp[2]=viz.robot_pose.theta;
+    tmp[3]=viz.force_vector.x;
+    tmp[4]=viz.force_vector.y;
+    tmp[5]=viz.force_vector.z;
+
+    emitter->send(tmp,6*sizeof(float));
+    delete[] tmp;
+  }
+}
+
+void SSLSimVisualizer::Spin(){
+  first_viz_data_arrived = true;
+
+  while(!first_viz_data_arrived && nh.ok()){
+    ros::spinOnce();
+    if (step(TIME_STEP) == -1) break;
+  }
+
+  while(nh.ok()){
+    ShowForceVector();
+    ros::spinOnce();
+    if (step(TIME_STEP) == -1) break;
+  }
+}
+
+SSLSimVisualizer::SSLSimVisualizer(const ros::NodeHandle& n):nh(n)
+{
+  emitter = getEmitter("emitter");
+}
+
+SSLSimVisualizer::~SSLSimVisualizer()
+{
+  // TODO Auto-generated destructor stub
+}

@@ -1,0 +1,56 @@
+#include "ros/ros.h"
+/*
+#include "ssl_msgs/LocalRobotState.h"
+#include "ssl_msgs/LocalState.h"
+#include "ssl_msgs/TeamCommand.h"
+#include "ssl_msgs/MotorCommand.h"
+*/
+
+#include "webots/Supervisor.hpp"
+
+class a : public webots::Supervisor{
+public:
+	a();
+	~a();
+};
+
+/*
+void chatterCallback(const ssl_msgs::TeamCommand & msg)
+{
+//  ROS_INFO("I heard: [%s]", msg->data.c_str());
+}
+
+void chatterCallback2(const ssl_msgs::LocalRobotState & msg)
+{
+//  ROS_INFO("I heard: [%s]", msg->data.c_str());
+}
+
+*/
+int main(int argc, char **argv)
+{
+	webots::Supervisor* s = new webots::Supervisor();
+
+	ros::init(argc, argv, "ssl_sim_transceiver");
+	ros::NodeHandle n;
+/*
+	ros::Publisher chatter_pub = n.advertise<ssl_msgs::LocalState>("local_state", 1000);
+	ros::Publisher chatter_pub2 = n.advertise<ssl_msgs::MotorCommand>("motor_command", 1000);
+
+	ros::Subscriber sub = n.subscribe("team_command", 1000, chatterCallback);
+	ros::Subscriber sub2 = n.subscribe("local_robot_state", 1000, chatterCallback2);
+	ros::Rate loop_rate(10);
+
+	ssl_msgs::LocalState gs;
+	ssl_msgs::MotorCommand gs2;
+
+	while (ros::ok())
+	{
+		chatter_pub.publish(gs);
+		chatter_pub2.publish(gs2);
+		ros::spinOnce();
+		loop_rate.sleep();
+	}
+*/
+
+	return 0;
+}

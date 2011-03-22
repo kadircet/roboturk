@@ -1,0 +1,426 @@
+/*
+ * SSLPathPlanner.cpp
+ *
+ *  Created on: Mar 13, 2011
+ *      Author: kadir
+ */
+
+#include "SSLPathPlanner.h"
+
+bool SSLPathPlanner::isInField(const ssl_msgs::GlobalRobotState& robot_state)
+{
+  if (robot_state.state == INSIDE_FIELD)
+    return true;
+  else
+    return false;
+}
+
+bool SSLPathPlanner::isItself(const ssl_msgs::GlobalRobotState& robot_state,
+                              const ssl_msgs::GlobalRobotState& other_robot_state)
+{
+  if (robot_state.id == other_robot_state.id && robot_state.team == other_robot_state.team)
+    return true;
+  else
+    return false;
+}
+
+float SSLPathPlanner::getDistance(const geometry_msgs::Pose2D robot_pose, const geometry_msgs::Pose2D other_robot_pose)
+{
+  return sqrt(pow(robot_pose.x - other_robot_pose.x, 2.0) + pow(robot_pose.y - other_robot_pose.y, 2.0));
+}
+
+Eigen::Vector3f SSLPathPlanner::calculateRepulsiveForce(const geometry_msgs::Pose2D& effected,
+                                                               const geometry_msgs::Pose2D& effector)
+{
+
+  float distance = getDistance(effected, effector);
+  Eigen::Vector3f force;
+  if (distance > REPULSION_DIST_THRESH)
+  {
+    force[0] = 0;
+    force[1] = 0;
+  }
+  else
+  {
+    float force_mag = fabs (REPULSION_GAIN * (1 / REPULSION_DIST_THRESH - 1 / distance) /pow(distance, 2.0));
+    float force_ang = atan2(effected.y - effector.y, effected.x - effector.x);
+    force[0] = force_mag * cos(force_ang);
+    force[1] = force_mag * sin(force_ang);
+  }
+  return force;
+}
+
+Eigen::Vector3f SSLPathPlanner::calculateAttractiveForce(const geometry_msgs::Pose2D& effected,
+                                                                const geometry_msgs::Pose2D& effector)
+{
+  float distance = getDistance(effected, effector);
+  Eigen::Vector3f force;
+  float force_mag = 0;
+  float force_ang = 0;
+  if (distance <= CONIC_QUADRATIC_THRESH)
+  {
+    force_mag = ATTRACTION_GAIN * distance;
+  }
+  else
+  {
+    force_mag = ATTRACTION_GAIN * CONIC_QUADRATIC_THRESH;
+  }
+  force_ang = atan2(effector.y - effected.y, effector.x - effected.x);
+  force[0] = force_mag * cos(force_ang);
+  force[1] = force_mag * sin(force_ang);
+  return force;
+}
+
+Eigen::Vector3f SSLPathPlanner::calculateForce(const geometry_msgs::Pose2D& effected,
+                                                      const geometry_msgs::Pose2D& effector, FORCE type)
+{
+  if (type == REPULSIVE)
+    return calculateRepulsiveForce(effected, effector);
+  else
+    return calculateAttractiveForce(effected, effector);
+}
+
+Eigen::Vector3f SSLPathPlanner::calculateForceField(const ssl_msgs::GlobalRobotState& robot_state,
+                                                           const geometry_msgs::Pose2D& target_pose)
+{
+  Eigen::Vector3f total_force;
+  Eigen::Vector3f force;
+  ssl_msgs::GlobalRobotState tmp;
+  for (unsigned int i = 0; i < global_state.robots_yellow.size(); i++)
+  {
+    tmp = global_state.robots_yellow[i];
+    if (!isItself(robot_state, tmp) && isInField(tmp))
+    {
+      force = calculateForce(robot_state.pose, tmp.pose, REPULSIVE);
+      total_force[0] += force[0];
+      total_force[1] += force[1];
+    }
+  }
+  for (unsigned int i = 0; i < global_state.robots_blue.size(); i++)
+  {
+    tmp = global_state.robots_blue[i];
+    if (!isItself(robot_state, tmp) && isInField(tmp))
+    {
+      force = calculateForce(robot_state.pose, tmp.pose, REPULSIVE);
+      total_force[0] += force[0];
+      total_force[1] += force[1];
+    }
+
+  }
+  force = calculateForce(robot_state.pose, target_pose, ATTRACTIVE);
+  total_force[0] += force[0];
+  total_force[1] += force[1];
+
+  return total_force;
+}
+
+double  SSLPathPlanner::getB_0(){
+  geometry_msgs::Pose2D center_pose;
+  center_pose.x = 0;
+  center_pose.y = 0;
+  return (-pow(getDistance(robot_state.pose,center_pose),2.0)+pow(2.0,2.0));//radius of the sphere world=3m
+}
+
+double  SSLPathPlanner::getB_i(int i){
+  if(i<=0)//itself and wrong input
+    return 1.0;
+  else if(i<5){//yellow
+    if(global_state.robots_yellow[i].state == INSIDE_FIELD)
+      return (pow(getDistance(robot_state.pose,global_state.robots_yellow[i].pose),2.0)-pow(0.18,2.0));
+    else
+      return 1.0;
+  }
+  else if(i<10){//blue
+    if(global_state.robots_blue[i-5].state == INSIDE_FIELD){
+      return (pow(getDistance(robot_state.pose,global_state.robots_blue[i-5].pose),2.0)-pow(0.18,2.0));
+    }
+    else
+      return 1.0;
+  }
+  else
+    return 1.0;
+}
+
+double  SSLPathPlanner::getB(){
+  double B = getB_0();
+  //std::cout<<"---"<<std::endl;
+  //std::cout<<"x:"<<robot_state.pose.x<<"y:"<<robot_state.pose.y<<std::endl;
+  //std::cout<<"B_0"<<B<<std::endl;
+
+  for(int i=1;i<10;i++){
+    double b_i= getB_i(i);
+//    std::cout<<b_i<<std::endl;
+    B*=b_i;
+
+//    B*= getB_i(i);
+  }
+  //std::cout<<"B:"<<B<<std::endl;
+  return B;
+}
+
+double  SSLPathPlanner::getB(int except_i){
+  double B = 0;
+  if(except_i!=0)
+    B = getB_0();
+
+  for(int i=1;i<10;i++)
+    if(i!=except_i)
+      B*= getB_i(i);
+
+  return B;
+}
+
+Eigen::Vector3f SSLPathPlanner::getGradientB_0(){
+  Eigen::Vector3f gradient_b_i(-2*robot_state.pose.x,-2*robot_state.pose.y,0.0);
+  return gradient_b_i;
+}
+Eigen::Vector3f SSLPathPlanner::getGradientB_i(int i){
+  Eigen::Vector3f gradient_b_i(0.0,0.0,0.0);
+
+  if(i<5 && i>0){
+    if(global_state.robots_yellow[i].state == INSIDE_FIELD){
+      gradient_b_i[0]=2*(robot_state.pose.x-global_state.robots_yellow[i].pose.x);
+      gradient_b_i[1]=2*(robot_state.pose.y-global_state.robots_yellow[i].pose.y);
+    }
+  }
+  else if(i<10){
+    if(global_state.robots_blue[i-5].state == INSIDE_FIELD){
+      gradient_b_i[0]=2*(robot_state.pose.x-global_state.robots_blue[i-5].pose.x);
+      gradient_b_i[1]=2*(robot_state.pose.y-global_state.robots_blue[i-5].pose.y);
+    }
+  }
+  return gradient_b_i;
+}
+
+Eigen::Vector3f SSLPathPlanner::getGradientB()
+{
+  Eigen::Vector3f gradient_B = getGradientB_0() * getB(0);
+
+  for (int i = 1; i < 10; i++)
+    gradient_B += getGradientB_i(i) * getB(i);
+
+  return gradient_B;
+}
+
+float SSLPathPlanner::getD_i(int i)
+{
+  if (i == 0)
+    return 0;
+  else if (i < 5)
+    return getDistance(robot_state.pose, global_state.robots_yellow[i].pose);
+  else if (i < 10)
+    return getDistance(robot_state.pose, global_state.robots_blue[i-5].pose);
+  else
+    return 0;
+}
+
+float SSLPathPlanner::getD()
+{
+  return getDistance(robot_state.pose, target_pose);
+}
+
+double SSLPathPlanner::getD_to_power(float power)
+{
+  return pow(getD(), power);
+}
+
+Eigen::Vector3f SSLPathPlanner::getGradientD()
+{
+  Eigen::Vector3f gradient_d(0,0,0);
+  gradient_d[0] = robot_state.pose.x - target_pose.x;
+  gradient_d[1] = robot_state.pose.y - target_pose.y;
+
+  return gradient_d / getDistance(robot_state.pose, target_pose);
+}
+void SSLPathPlanner::saveNavFncData(){
+  std::ofstream out_file;
+  out_file.open("nav_fnc.txt",ios_base::out);
+  double nav_fnc = 0;
+  for(float r=0.01;r<2.0;r+=0.01)
+    for(float theta=0.0;theta<2*PI;theta+=0.01)
+    {
+      robot_state.pose.x = r*cos(theta);
+      robot_state.pose.y = r*sin(theta);
+      nav_fnc = calcNavFnc();
+      out_file<<
+          robot_state.pose.x<<"\t"<<
+          robot_state.pose.y<<"\t"<<
+          nav_fnc<<std::endl;
+    }
+  out_file.close();
+}
+double SSLPathPlanner::calcNavFnc(){
+  double nav_fnc = 0;
+  double d_to_power_2 = getD_to_power(2);
+  double d_to_power_2_kappa = getD_to_power(2*kappa);
+  double B = getB();
+  double denominator = pow(d_to_power_2_kappa+lambda*B, 1.0/(double)kappa);
+//  if(d_to_power_2_kappa < 0.0001)
+//    nav_fnc = 1.0;
+//  else
+//    nav_fnc = d_to_power_2/denominator;
+  nav_fnc = d_to_power_2/denominator;
+  if(nav_fnc > 1.0 || std::isnan(nav_fnc) || std::isinf(nav_fnc))
+    nav_fnc = 1.0;
+
+//  std::cout<<"d_to_power_2      : "<<d_to_power_2<<std::endl;
+//  std::cout<<"d_to_power_2_kappa: "<<d_to_power_2_kappa<<std::endl;
+//  std::cout<<"denominator       : "<<denominator<<std::endl;
+//  std::cout<<"nav_fnc           : "<<nav_fnc<<std::endl;
+
+  return nav_fnc;
+}
+
+Eigen::Vector3f SSLPathPlanner::calcGradientNavFnc()
+{
+  Eigen::Vector3f gradient_nav_fnc(0, 0, 0);
+
+  double numerator_left_scalar =
+      2 * getD() * pow(lambda * getB() + getD_to_power(2 * kappa), 1.0 / (double)kappa);
+  gradient_nav_fnc = getGradientD() * numerator_left_scalar;
+  double numerator_right_scalar =
+      getD_to_power(2)*
+      pow((lambda * getB() + getD_to_power(2 * kappa)), (1.0 / (double)kappa - 1.0))/
+      (double)kappa;
+  double numerator_second_right_scalar = 2 * kappa * getD_to_power(2 * kappa - 1);
+  gradient_nav_fnc =
+      gradient_nav_fnc - (getGradientB() * lambda + getGradientD() * numerator_second_right_scalar)
+      * numerator_right_scalar;
+
+  double denominator_scalar = pow(lambda * getB() + getD_to_power(2 * kappa), 2.0 / (double)kappa);
+
+  gradient_nav_fnc = gradient_nav_fnc / denominator_scalar;
+  gradient_nav_fnc *= -1;//negative gradient
+
+  return gradient_nav_fnc;
+}
+
+void SSLPathPlanner::Plan(const int& id, const TeamColor& team, const geometry_msgs::Pose2D& target_pose, NavMethod navigation_method){
+
+//  ssl_msgs::GlobalRobotState robot_state;
+  try
+  {
+    if (team == YELLOW)
+      robot_state = global_state.robots_yellow[id];
+    else
+      robot_state = global_state.robots_blue[id];
+  }
+  catch (int i)
+  {
+    cerr << "id is probably wrong with the value: " << id << endl;
+    cerr << "Exiting" << endl;
+    exit(i);
+  }
+
+  if(!first_time){
+    prev_robot_state = robot_state;
+    first_time =true;
+  }
+  total_path_distance+=getDistance(robot_state.pose,prev_robot_state.pose);
+  prev_robot_state = robot_state;
+  dist_to_goal = getDistance(robot_state.pose,target_pose);
+  if(dist_to_goal < 0.2)
+    std::cout<<"distance: "<<total_path_distance<<std::endl;
+  Eigen::Vector3f force(0,0,0);
+  if(navigation_method == ATT_REP)
+  {
+    force = calculateForceField(robot_state, target_pose);
+  }
+  else if(navigation_method == NAV_FNC){
+    force = calcGradientNavFnc();
+  }
+
+  cout<<"force_z: "<<force[0]<<"\t"<<"force_x: "<<force[1]<<endl;//in webots coord. sys.
+//  force = force*30;
+//  cout<<"force_z: "<<force[0]<<"\t"<<"force_x: "<<force[1]<<endl;//in webots coord. sys.
+  ssl_msgs::RobotCommand robot_command;
+  robot_command.trans_speed = sqrt(pow(force[0], 2.0) + pow(force[1], 2.0)/*+ pow(force.z, 2.0)*/);
+//  std::cout<<"trans_speed: "<<robot_command.trans_speed<<std::endl;
+  robot_command.trans_direction = atan2(force[1], force[0]);
+//  std::cout<<"trans_direction: "<<robot_command.trans_direction<<std::endl;
+
+  //converting to the robot's local frame
+  robot_command.trans_direction -= robot_state.pose.theta;
+
+  while (team_command.robot_commands.size() > 0)
+    team_command.robot_commands.pop_back();
+  team_command.robot_commands.clear();
+  team_command.robot_commands.push_back(robot_command);
+
+  viz.robot_position.x = robot_state.pose.y;
+  viz.robot_position.y = 0.0;
+  viz.robot_position.z = robot_state.pose.x;
+  viz.force_vector.x = force[1]/100.0;//x in webots global frame
+  viz.force_vector.z = force[0]/100.0;//z in webots global frame
+  viz.force_vector.y = 0.0;//robots height
+}
+
+void SSLPathPlanner::Send()
+{
+  //TODO: add status message to all Send routines
+  //to give information about the change in the number of subscribers
+  //if there is a change.
+  if (pub_command.getNumSubscribers() > 0)
+    pub_command.publish(team_command);
+
+  if(pub_viz.getNumSubscribers() > 0){
+//    cout<<"force_z: "<<viz.force_vector.z<<"\t"<<"force_x: "<<viz.force_vector.x<<endl;
+    pub_viz.publish(viz);
+  }
+}
+
+void SSLPathPlanner::poseCallback(const ssl_msgs::TeamPoseCommand::ConstPtr &target_poses_msg)
+{
+  if (!first_poses_arrived)
+    first_poses_arrived = true;
+  team_target_poses = *target_poses_msg;
+  target_pose = team_target_poses.target_poses[0];
+}
+
+SSLPathPlanner::SSLPathPlanner(ros::NodeHandle& n) : SSLGlobalStateSubscriber(n), nh(n)
+{
+  dist_to_goal= 10.0;
+  total_path_distance = 0.0;
+  first_time = false;
+  kappa = KAPPA;
+  lambda = LAMBDA;
+  first_poses_arrived = false;
+  pub_command = nh.advertise<ssl_msgs::TeamCommand> ("team_command", 1000);
+  pub_viz=nh.advertise<ssl_msgs::Visualization> ("visualization",1000);
+  sub_poses = nh.subscribe("team_pose_command", 1000, &SSLPathPlanner::poseCallback, this);
+}
+
+SSLPathPlanner::~SSLPathPlanner()
+{
+  // TODO Auto-generated destructor stub
+}
+
+bool SSLPathPlanner::Spin()
+{
+  //wait for until the global_state information is received
+  //wait for until the target_state information is received
+  while(!(first_global_data_arrived && first_poses_arrived) && nh.ok())
+    ros::spinOnce();
+
+//  saveNavFncData();
+//  return true;
+//  first_global_data_arrived = false;
+//  first_poses_arrived = false;
+//
+//  while(!(first_global_data_arrived && first_poses_arrived) && nh.ok())
+//    ros::spinOnce();
+
+  while (nh.ok())
+  {
+//    Plan(0,YELLOW,target_pose,NAV_FNC);
+    Plan(0,YELLOW,target_pose,ATT_REP);
+    Send();
+    if(dist_to_goal < 0.1)
+      return true;
+
+    //Print();
+    ros::spinOnce();
+//    loop_rate.sleep();
+  }
+  return true;
+}

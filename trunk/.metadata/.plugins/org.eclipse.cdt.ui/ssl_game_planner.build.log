@@ -1,0 +1,122 @@
+rosmake 
+[ rosmake ] No package specified.  Building ['ssl_game_planner']                
+[ rosmake ] Packages requested are: ['ssl_game_planner']                        
+[ rosmake ] Logging to directory/home/kadir/.ros/rosmake/rosmake_output-20110319-131104
+[ rosmake ] Expanded args ['ssl_game_planner'] to:
+['ssl_game_planner']         
+[ rosmake ] Checking rosdeps compliance for packages ssl_game_planner.  This may take a few seconds.
+[ rosmake ] rosdep check passed all system dependencies in packages             
+[rosmake-0] Starting >>> rosbuild [ make ]                                      
+[rosmake-0] Finished <<< rosbuild ROS_NOBUILD in package rosbuild
+ No Makefile in package rosbuild
+[rosmake-0] Starting >>> roslang [ make ]                                       
+[rosmake-0] Finished <<< roslang ROS_NOBUILD in package roslang
+ No Makefile in package roslang
+[rosmake-0] Starting >>> cpp_common [ make ]                                    
+[rosmake-0] Finished <<< cpp_common ROS_NOBUILD in package cpp_common           
+[rosmake-0] Starting >>> roscpp_traits [ make ]                                 
+[rosmake-0] Finished <<< roscpp_traits ROS_NOBUILD in package roscpp_traits     
+[rosmake-0] Starting >>> rostime [ make ]                                       
+[rosmake-0] Finished <<< rostime ROS_NOBUILD in package rostime                 
+[rosmake-0] Starting >>> roscpp_serialization [ make ]                          
+[rosmake-0] Finished <<< roscpp_serialization ROS_NOBUILD in package roscpp_serialization
+[rosmake-0] Starting >>> roslib [ make ]                                        
+[rosmake-0] Finished <<< roslib ROS_NOBUILD in package roslib                   
+[rosmake-0] Starting >>> xmlrpcpp [ make ]                                      
+[rosmake-0] Finished <<< xmlrpcpp ROS_NOBUILD in package xmlrpcpp               
+[rosmake-0] Starting >>> rosconsole [ make ]                                    
+[rosmake-0] Finished <<< rosconsole ROS_NOBUILD in package rosconsole           
+[rosmake-0] Starting >>> std_msgs [ make ]                                      
+[rosmake-0] Finished <<< std_msgs ROS_NOBUILD in package std_msgs               
+[rosmake-1] Starting >>> rosgraph_msgs [ make ]                                 
+[rosmake-1] Finished <<< rosgraph_msgs ROS_NOBUILD in package rosgraph_msgs     
+[rosmake-1] Starting >>> rosclean [ make ]                                      
+[rosmake-1] Finished <<< rosclean ROS_NOBUILD in package rosclean               
+[rosmake-1] Starting >>> rosgraph [ make ]                                      
+[rosmake-0] Starting >>> roscpp [ make ]                                        
+[rosmake-1] Finished <<< rosgraph ROS_NOBUILD in package rosgraph               
+[rosmake-0] Finished <<< roscpp ROS_NOBUILD in package roscpp                   
+[rosmake-1] Starting >>> rospy [ make ]                                         
+[rosmake-1] Finished <<< rospy ROS_NOBUILD in package rospy                     
+[rosmake-1] Starting >>> rosmaster [ make ]                                     
+[rosmake-1] Finished <<< rosmaster ROS_NOBUILD in package rosmaster             
+[rosmake-1] Starting >>> rosunit [ make ]                                       
+[rosmake-1] Finished <<< rosunit ROS_NOBUILD in package rosunit                 
+[ rosmake ] [ make ] [ roscpp: 0.0 sec ]             [ 1 Active 17/28 Complete ]
+[rosmake-0] Starting >>> rosout [ make ]                                        
+[rosmake-0] Finished <<< rosout ROS_NOBUILD in package rosout                   
+[rosmake-0] Starting >>> roslaunch [ make ]                                     
+[rosmake-0] Finished <<< roslaunch ROS_NOBUILD in package roslaunch
+ No Makefile in package roslaunch
+[rosmake-0] Starting >>> rostest [ make ]                                       
+[rosmake-0] Finished <<< rostest ROS_NOBUILD in package rostest                 
+[rosmake-0] Starting >>> topic_tools [ make ]                                   
+[rosmake-0] Finished <<< topic_tools ROS_NOBUILD in package topic_tools         
+[rosmake-0] Starting >>> rosbag [ make ]                                        
+[rosmake-0] Finished <<< rosbag ROS_NOBUILD in package rosbag                   
+[rosmake-0] Starting >>> rosbagmigration [ make ]                               
+[rosmake-0] Finished <<< rosbagmigration ROS_NOBUILD in package rosbagmigration
+ No Makefile in package rosbagmigration
+[rosmake-0] Starting >>> geometry_msgs [ make ]                                 
+[rosmake-0] Finished <<< geometry_msgs ROS_NOBUILD in package geometry_msgs     
+[rosmake-0] Starting >>> ssl_msgs [ make ]                                      
+[rosmake-0] Finished <<< ssl_msgs ROS_NOBUILD in package ssl_msgs               
+[rosmake-0] Starting >>> ssl_comm_primitives [ make ]                           
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.0 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.1 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.2 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.3 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.4 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.5 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.6 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.7 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.8 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 0.9 s... [ 1 Active 26/28 Complete ]
+[ rosmake ] [ make ] [ ssl_comm_primitives: 1.0 s... [ 1 Active 26/28 Complete ]
+[rosmake-0] Finished <<< ssl_comm_primitives [PASS] [ 1.05 seconds ]            
+[rosmake-0] Starting >>> ssl_game_planner [ make ]                              
+[ rosmake ] [ make ] [ ssl_game_planner: 0.1 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.2 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.3 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.4 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.5 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.6 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.7 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.8 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 0.9 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.0 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.1 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.2 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.3 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.4 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.5 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.6 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.7 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.8 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 1.9 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.0 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.1 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.2 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.3 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.4 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.5 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.6 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.7 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.8 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 2.9 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.0 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.1 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.2 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.3 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.4 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.5 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.6 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.7 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.8 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 3.9 sec ]   [ 1 Active 27/28 Complete ]
+[ rosmake ] [ make ] [ ssl_game_planner: 4.0 sec ]   [ 1 Active 27/28 Complete ]
+[rosmake-0] Finished <<< ssl_game_planner [PASS] [ 4.06 seconds ]               
+[ rosmake ] Results:                                                            
+[ rosmake ] Built 28 packages with 0 failures.                                  
+[ rosmake ] Summary output to directory                                         
+[ rosmake ] /home/kadir/.ros/rosmake/rosmake_output-20110319-131104             

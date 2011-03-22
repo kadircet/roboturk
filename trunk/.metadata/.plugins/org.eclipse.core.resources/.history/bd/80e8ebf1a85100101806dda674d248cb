@@ -1,0 +1,34 @@
+#include "webots/Supervisor.hpp"
+#include "webots/Emitter.hpp"
+#include "ros/ros.h"
+
+#include "iostream"
+#include "string"
+
+class DemoSupervisor : public webots::Supervisor{
+private:
+  webots::Emitter* emitter;
+  ros::NodeHandle nh;
+
+public:
+  DemoSupervisor(const ros::NodeHandle& n):nh(n){
+    emitter = getEmitter("emitter");
+  }
+  void Send(){
+    std::string s("hello world");
+  }
+  void Spin(){
+
+  }
+
+
+};
+
+int main(int argc, char** argv){
+
+  ros::init(argc, argv, "demo_supervisor");
+  ros::NodeHandle n;
+  DemoSupervisor* supervisor = new DemoSupervisor(n);
+
+  return 0;
+}

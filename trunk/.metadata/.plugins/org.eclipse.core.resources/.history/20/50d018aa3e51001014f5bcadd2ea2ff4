@@ -1,0 +1,11 @@
+#include "SSLSimRobot.h"
+#include "ros/ros.h"
+
+
+int main(int argc, char** argv)
+{
+  SSLSimRobot* robot = new SSLSimRobot(n);
+  robot->Spin();
+
+  return 0;
+}

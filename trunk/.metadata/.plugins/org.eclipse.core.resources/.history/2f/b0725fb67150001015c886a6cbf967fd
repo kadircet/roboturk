@@ -1,0 +1,8 @@
+#include "SSLSimRobot.h"
+#include "ros/ros.h"
+
+
+int main(){
+  SSLSimRobot* robot = new SSLSimRobot();
+	return 0;
+}

@@ -1,0 +1,2 @@
+geometry_msgs/Point32 robot_position
+geometry_msgs/Point32 force_vector

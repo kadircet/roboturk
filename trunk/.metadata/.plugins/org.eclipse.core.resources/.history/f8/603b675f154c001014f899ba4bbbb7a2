@@ -1,0 +1,21 @@
+/*
+ * SSLSimVision.h
+ *
+ *  Created on: Mar 11, 2011
+ *      Author: kadir
+ */
+
+#include "ros/ros.h"
+#include "ssl_msgs/GlobalState.h"
+#include <webots/Robot.hpp>
+
+#ifndef SSLSIMVISION_H_
+#define SSLSIMVISION_H_
+
+class SSLSimVision {
+public:
+	SSLSimVision();
+	virtual ~SSLSimVision();
+};
+
+#endif /* SSLSIMVISION_H_ */

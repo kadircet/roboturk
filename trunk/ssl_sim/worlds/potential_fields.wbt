@@ -1,0 +1,1202 @@
+#VRML_SIM V6.0 utf8
+WorldInfo {
+  info [
+    "Description"
+    "Author: first name last name <e-mail>"
+    "Date: DD MMM YYYY"
+  ]
+  runRealTime TRUE
+}
+Viewpoint {
+  orientation -0.997711 -0.0595741 -0.0319829 1.12518
+  position -0.338807 7.01193 4.12994
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+PointLight {
+  ambientIntensity 1
+  attenuation 0.5 0.5 0.5
+  intensity 2
+  location -1.1 4 -2.3
+}
+PointLight {
+  ambientIntensity 1
+  attenuation 0.5 0.5 0.5
+  intensity 2
+  location 1.1 4 -2.3
+}
+PointLight {
+  ambientIntensity 1
+  attenuation 0.5 0.5 0.5
+  intensity 2
+  location 1.1 4 2.3
+}
+PointLight {
+  ambientIntensity 1
+  attenuation 0.5 0.5 0.5
+  intensity 2
+  location -1.1 4 2.3
+}
+DEF FIELD Solid {
+  children [
+    DEF GROUND Shape {
+      appearance Appearance {
+        material Material {
+          shininess 1
+        }
+        texture ImageTexture {
+          url [
+            "/home/kadir/interconnection/workspace/robocup/webots_projects/cs548/worlds/textures/field.png"
+          ]
+        }
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -2.7 0 -3.7
+            2.7 0 -3.7
+            2.7 0 3.7
+            -2.7 0 3.7
+          ]
+        }
+        texCoord TextureCoordinate {
+          point [
+            0 0
+            1 0
+            1 1
+            0 1
+          ]
+        }
+        ccw FALSE
+        coordIndex [
+          0, 1, 2, 3
+        ]
+        texCoordIndex [
+          0, 3, 2, 1
+        ]
+      }
+    }
+  ]
+  name "field"
+  boundingObject Shape {
+    geometry IndexedFaceSet {
+      coord Coordinate {
+        point [
+          -2.7 0 -3.7
+          2.7 0 -3.7
+          2.7 0 3.7
+          -2.7 0 3.7
+        ]
+      }
+      coordIndex [
+        0, 1, 2, 3, -1
+      ]
+    }
+  }
+}
+DEF GOAL_BLUE Solid {
+  translation 0 0 -3.025
+  rotation 0 1 0 1.57
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+          emissiveColor 0 0 1
+        }
+      }
+      geometry Extrusion {
+        convex FALSE
+        crossSection [
+          0.25 0.37
+          0.25 -0.37
+          0 -0.37
+          0 -0.35
+          0.23 -0.35
+          0.23 0.35
+          0 0.35
+          0 0.37
+          0.25 0.37
+        ]
+        spine [
+          0 0 0
+          0 0.2 0
+        ]
+      }
+    }
+  ]
+  name "blueGoal"
+  boundingObject DEF GOAL_WALLS Group {
+    children [
+      Transform {
+        translation 0.125 0.1 0.36
+        children [
+          DEF SIDE_WALL Box {
+            size 0.25 0.2 0.02
+          }
+        ]
+      }
+      Transform {
+        translation 0.24 0.1 0
+        rotation 0 1 0 1.57
+        children [
+          DEF REAR_WALL Shape {
+            geometry Box {
+              size 0.7 0.2 0.02
+            }
+          }
+        ]
+      }
+      Transform {
+        translation 0.125 0.1 -0.36
+        children [
+          Box {
+            size 0.25 0.2 0.02
+          }
+        ]
+      }
+    ]
+  }
+}
+DEF GOAL_YELLOW Solid {
+  translation 0 0 3.025
+  rotation 0 1 0 -1.57
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+          emissiveColor 1 1 0
+        }
+      }
+      geometry Extrusion {
+        convex FALSE
+        crossSection [
+          0.25 0.37
+          0.25 -0.37
+          0 -0.37
+          0 -0.35
+          0.23 -0.35
+          0.23 0.35
+          0 0.35
+          0 0.37
+          0.25 0.37
+        ]
+        spine [
+          0 0 0
+          0 0.2 0
+        ]
+      }
+    }
+  ]
+  name "yellowGoal"
+  boundingObject USE GOAL_WALLS
+}
+DEF BALL Solid {
+  translation -0.198193 0.0212278 2.41907
+  rotation 0.443534 -0.454579 0.772422 -2.57147
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          ambientIntensity 0
+          diffuseColor 0 0 0
+          emissiveColor 0.882353 0.411765 0
+        }
+      }
+      geometry Sphere {
+        radius 0.0213
+        subdivision 4
+      }
+    }
+  ]
+  name "ball"
+  boundingObject Sphere {
+    radius 0.0213
+  }
+  physics Physics {
+    density -1
+    mass 0.046
+    bounce 0.75
+    coulombFriction 0.1
+  }
+}
+DEF BUG Robot {
+  translation -0.205794 0.0794233 2.52022
+  rotation 0 1 0 3
+  children [
+    Emitter {
+    }
+    Receiver {
+      channel 1
+    }
+    DEF IR DistanceSensor {
+      translation -0.038 -0.0608 0.082
+      children [
+        DEF INFRARED Transform {
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.005
+                radius 0.005
+              }
+            }
+          ]
+        }
+      ]
+      name "ir"
+      lookupTable [
+        0 100 0
+        0.08 0 0
+      ]
+    }
+    DEF KICKER Servo {
+      translation 1.13542e-10 -0.06 0.0650012
+      rotation 0.0260429 0.999621 -0.00896841 0.000204783
+      children [
+        Transform {
+          children [
+            DEF KICKER_PLUNGER Shape {
+              appearance Appearance {
+                material Material {
+                  emissiveColor 0.74902 0.74902 0.74902
+                }
+              }
+              geometry Box {
+                size 0.05 0.006 0.001
+              }
+            }
+          ]
+        }
+      ]
+      name "kicker"
+      boundingObject USE KICKER_PLUNGER
+      physics Physics {
+        density -1
+        mass 0.02
+        bounce 50
+      }
+      type "linear"
+      maxVelocity 1000
+      maxForce 1000
+      acceleration 1000
+      position 5.54847e-07
+      maxPosition 0.045
+      springConstant 1
+    }
+    DEF DRIBBLER Servo {
+      translation 4.48651e-09 -0.039 0.0750003
+      rotation 1 5.78186e-12 2.23795e-11 0.0329683
+      children [
+        Transform {
+          children [
+            DEF DRIBBLER_SYS Group {
+              children [
+                DEF ROLLER_BAR Transform {
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.08
+                        radius 0.005
+                      }
+                    }
+                  ]
+                }
+                DEF ROLLER_CYLINDER Transform {
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.02
+                        radius 0.006
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_1 Transform {
+                  translation 0.0115 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0065
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_1_ Transform {
+                  translation -0.0115 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0065
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_2 Transform {
+                  translation 0.0145 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.007
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_2_ Transform {
+                  translation -0.0145 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.007
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_3 Transform {
+                  translation -0.0175 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0075
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_3_ Transform {
+                  translation 0.0175 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0075
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_4 Transform {
+                  translation 0.0205 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.008
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_4_ Transform {
+                  translation -0.0205 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.008
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_5 Transform {
+                  translation 0.0235 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0085
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_5_ Transform {
+                  translation -0.0235 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0085
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_6 Transform {
+                  translation 0.0265 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.009
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_6_ Transform {
+                  translation -0.0265 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.009
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_7 Transform {
+                  translation 0.0295 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0095
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_7_ Transform {
+                  translation -0.0295 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0095
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_8 Transform {
+                  translation 0.0325 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.01
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_8_ Transform {
+                  translation -0.0325 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.01
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_9 Transform {
+                  translation 0.0355 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0105
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_9_ Transform {
+                  translation -0.0355 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.0105
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_10 Transform {
+                  translation 0.0385 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.011
+                      }
+                    }
+                  ]
+                }
+                DEF ROLL_10_ Transform {
+                  translation -0.0385 0 0
+                  rotation 0 0 1 1.57
+                  children [
+                    Shape {
+                      geometry Cylinder {
+                        height 0.003
+                        radius 0.011
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      name "dribbler"
+      boundingObject USE DRIBBLER_SYS
+      physics Physics {
+        mass 0.1
+        bounce 0
+        bounceVelocity 0.005
+        coulombFriction 1000
+      }
+      maxVelocity 100
+      acceleration 100
+      position 18265.3
+    }
+    DEF CHIP_KICKER Servo {
+      translation 0 -0.06 0.065
+      rotation 1 0 0 0
+      children [
+        Transform {
+          rotation 1 0 0 0
+        }
+      ]
+    }
+    DEF SOLID1 Solid {
+      translation 0 -0.052 0
+      rotation 0 1 0 1.0472
+      children [
+        DEF WHEEL1 Servo {
+          translation 0 0 0.07
+          rotation 0 0 1 1.27935
+          children [
+            DEF sr0 Servo {
+              translation 0.023 0 0.02
+              rotation 0 -1 0 0
+              children [
+                DEF r0 Transform {
+                  rotation 0 0 1 0
+                  children [
+                    DEF SMALL_WHEEL_SHAPE Shape {
+                      appearance Appearance {
+                        material Material {
+                          diffuseColor 1 0.752941 0.796078
+                        }
+                      }
+                      geometry Cylinder {
+                        height 0.0025
+                        radius 0.005
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject USE r0
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -18.889
+            }
+            DEF sr1 Servo {
+              translation 0.021011 0.00935494 0.02
+              rotation 0.406737 -0.913545 0 0
+              children [
+                DEF r1 Transform {
+                  rotation 0 0 1 0.418879
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r1
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position 25.0985
+            }
+            DEF sr14 Servo {
+              translation 0.021011 -0.00935494 0.02
+              rotation -0.406737 -0.913545 0 0
+              children [
+                DEF r14 Transform {
+                  rotation 0 0 1 -0.418879
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r14
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -18.8874
+            }
+            DEF sr2 Servo {
+              translation 0.01539 0.0170923 0.02
+              rotation 0.743145 -0.669131 0 0
+              children [
+                DEF r2 Transform {
+                  rotation 0 0 1 0.837758
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r2
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -0.0230113
+            }
+            DEF sr13 Servo {
+              translation 0.01539 -0.0170923 0.02
+              rotation -0.743145 -0.669131 0 0
+              children [
+                DEF r13 Transform {
+                  rotation 0 0 1 -0.837758
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r13
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -37.7289
+            }
+            DEF sr3 Servo {
+              translation 0.00710739 0.0218743 0.02
+              rotation 0.951057 -0.309017 0 0
+              children [
+                DEF r3 Transform {
+                  rotation 0 0 1 1.25664
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r3
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -6.29105
+            }
+            DEF sr12 Servo {
+              translation 0.00710739 -0.0218743 0.02
+              rotation -0.951057 -0.309017 0 0
+              children [
+                DEF r12 Transform {
+                  rotation 0 0 1 -1.25664
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r12
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -56.5652
+            }
+            DEF sr4 Servo {
+              translation -0.00240415 0.022874 0.02
+              rotation 0.994522 0.104528 0 0
+              children [
+                DEF r4 Transform {
+                  rotation 0 0 1 1.67552
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r4
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -31.4073
+            }
+            DEF sr11 Servo {
+              translation -0.00240415 -0.022874 0.02
+              rotation -0.994522 0.104528 0 0
+              children [
+                DEF r11 Transform {
+                  rotation 0 0 1 -1.67552
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r11
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -18.6681
+            }
+            DEF sr5 Servo {
+              translation -0.0115 0.0199186 0.02
+              rotation 0.866025 0.5 0 0
+              children [
+                DEF r5 Transform {
+                  rotation 0 0 1 2.0944
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r5
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -12.5428
+            }
+            DEF sr10 Servo {
+              translation -0.0115 -0.0199186 0.02
+              rotation -0.866025 0.5 0 0
+              children [
+                DEF r10 Transform {
+                  rotation 0 0 1 -2.0944
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r10
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -12.7209
+            }
+            DEF sr6 Servo {
+              translation -0.0186074 0.0135191 0.02
+              rotation 0.587785 0.809017 0 0
+              children [
+                DEF r6 Transform {
+                  rotation 0 0 1 2.51327
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r6
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -12.5318
+            }
+            DEF sr9 Servo {
+              translation -0.0186074 -0.0135191 0.02
+              rotation -0.587785 0.809017 0 0
+              children [
+                DEF r9 Transform {
+                  rotation 0 0 1 -2.51327
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r9
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -12.5371
+            }
+            DEF sr7 Servo {
+              translation -0.0224974 0.00478197 0.02
+              rotation 0.207912 0.978148 0 0
+              children [
+                DEF r7 Transform {
+                  rotation 0 0 1 2.93215
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r7
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -6.24368
+            }
+            DEF sr8 Servo {
+              translation -0.0224974 -0.00478197 0.02
+              rotation -0.207912 0.978148 0 0
+              children [
+                DEF r8 Transform {
+                  rotation 0 0 1 3.35103
+                  children [
+                    USE SMALL_WHEEL_SHAPE
+                  ]
+                }
+              ]
+              boundingObject USE r8
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+              maxForce 0
+              position -12.5288
+            }
+            DEF WHEEL_TRANS Transform {
+              translation 0 0 0.02
+              rotation 1 0 0 1.5708
+              children [
+                DEF WHEEL_SHAPE Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0.678431 0.847059 0.901961
+                    }
+                  }
+                  geometry Cylinder {
+                    height 0.016
+                    radius 0.025
+                    subdivision 20
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel1"
+          boundingObject Transform {
+            translation 0 0 0.02
+            rotation 1 0 0 1.5708
+            children [
+              DEF wheel1 Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0 1 0
+                    transparency 0.13
+                  }
+                }
+                geometry Cylinder {
+                  height 0.016
+                  radius 0.025
+                }
+              }
+            ]
+          }
+          physics Physics {
+          }
+          maxVelocity 40
+          position 0.639677
+        }
+      ]
+      boundingObject DEF DUMMY Sphere {
+        radius 0.01
+      }
+      physics Physics {
+      }
+    }
+    DEF SOLID2 Solid {
+      translation 0 -0.052 0
+      rotation 0 1 0 3.14159
+      children [
+        DEF WHEEL2 Servo {
+          translation 0 0 0.07
+          rotation -0.000245117 0.000116506 1 34.4371
+          children [
+            USE sr14
+            USE sr7
+            USE sr8
+            USE sr0
+            USE sr1
+            USE sr2
+            USE sr3
+            USE sr4
+            USE sr5
+            USE sr6
+            USE sr13
+            USE sr12
+            USE sr11
+            USE sr10
+            USE sr9
+            USE WHEEL_TRANS
+          ]
+          name "wheel2"
+          boundingObject Transform {
+            translation 0 0 0.02
+            rotation 1 0 0 1.5708
+            children [
+              DEF wheel1 Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0 1 0
+                    transparency 0.13
+                  }
+                }
+                geometry Cylinder {
+                  height 0.016
+                  radius 0.025
+                }
+              }
+            ]
+          }
+          physics Physics {
+          }
+          maxVelocity 40
+          position 5.64351
+        }
+      ]
+      boundingObject USE DUMMY
+      physics Physics {
+      }
+    }
+    DEF SOLID3 Solid {
+      translation 0 -0.052 0
+      rotation 9.88824e-08 1 3.16695e-07 -1.0472
+      children [
+        DEF WHEEL3 Servo {
+          translation 0 0 0.07
+          rotation -1.10872e-05 -4.00201e-05 1 -11.9228
+          children [
+            USE sr14
+            USE sr7
+            USE sr8
+            USE sr0
+            USE sr1
+            USE sr2
+            USE sr3
+            USE sr4
+            USE sr5
+            USE sr6
+            USE sr13
+            USE sr12
+            USE sr11
+            USE sr10
+            USE sr9
+            USE WHEEL_TRANS
+          ]
+          name "wheel3"
+          boundingObject Transform {
+            translation 0 0 0.02
+            rotation 1 0 0 1.5708
+            children [
+              DEF wheel1 Shape {
+                appearance Appearance {
+                  material Material {
+                    emissiveColor 0 1 0
+                    transparency 0.13
+                  }
+                }
+                geometry Cylinder {
+                  height 0.016
+                  radius 0.025
+                }
+              }
+            ]
+          }
+          physics Physics {
+          }
+          maxVelocity 40
+          position -11.9267
+        }
+      ]
+      boundingObject USE DUMMY
+      physics Physics {
+      }
+    }
+    DEF BODY Group {
+      children [
+        Transform {
+          translation 0 0 0.012
+          children [
+            Shape {
+              appearance DEF COVER Appearance {
+                material Material {
+                  transparency 0.3
+                }
+              }
+              geometry Box {
+                size 0.1235 0.15 0.1
+              }
+            }
+          ]
+        }
+        Transform {
+          rotation 0 1 0 1.57
+          children [
+            DEF BODY_RECT_LONG Shape {
+              appearance USE COVER
+              geometry Box {
+                size 0.015 0.15 0.174
+              }
+            }
+          ]
+        }
+        Transform {
+          rotation 0 1 0 1.396
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 -1.396
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 1.2217
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 -1.2217
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 1.0471
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 -1.0471
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 0.87266
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          rotation 0 1 0 -0.87266
+          children [
+            USE BODY_RECT_LONG
+          ]
+        }
+        Transform {
+          translation 0 0 -0.0435
+          children [
+            DEF BODY_RECT_SHORT Shape {
+              appearance USE COVER
+              geometry Box {
+                size 0.015 0.15 0.087
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.007445 0 -0.04285
+          rotation 0 1 0 0.17198
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation 0.007445 0 -0.04285
+          rotation 0 1 0 -0.17198
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation -0.01466 0 -0.04095
+          rotation 0 1 0 0.34396
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation 0.01466 0 -0.04095
+          rotation 0 1 0 -0.34396
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation -0.02145 0 -0.03786
+          rotation 0 1 0 0.51595
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation 0.02145 0 -0.03786
+          rotation 0 1 0 -0.51595
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation -0.02762 0 -0.0336
+          rotation 0 1 0 0.7
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+        Transform {
+          translation 0.02762 0 -0.0336
+          rotation 0 1 0 -0.7
+          children [
+            USE BODY_RECT_SHORT
+          ]
+        }
+      ]
+    }
+  ]
+  name "bug"
+  boundingObject USE BODY
+  physics Physics {
+    mass 3
+    bounce 0.2
+    bounceVelocity 0.005
+  }
+  controller "tangent_bug"
+}

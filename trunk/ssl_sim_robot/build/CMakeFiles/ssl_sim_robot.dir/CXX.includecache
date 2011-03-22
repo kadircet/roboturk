@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/SSLSimRobot.h
+webots/Robot.hpp
+../include/webots/Robot.hpp
+webots/Servo.hpp
+../include/webots/Servo.hpp
+vector
+../include/vector
+iostream
+../include/iostream
+math.h
+../include/math.h
+
+/home/kadir/interconnection/workspace/robocup/system_design/robocup_ssl/ssl_sim_robot/src/SSLSimRobot.cpp
+SSLSimRobot.h
+/home/kadir/interconnection/workspace/robocup/system_design/robocup_ssl/ssl_sim_robot/src/SSLSimRobot.h
+

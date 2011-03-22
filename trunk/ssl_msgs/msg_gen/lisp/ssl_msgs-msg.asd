@@ -1,0 +1,33 @@
+
+(cl:in-package :asdf)
+
+(defsystem "ssl_msgs-msg"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :geometry_msgs-msg
+               :std_msgs-msg
+)
+  :components ((:file "_package")
+    (:file "ActuatorCommand" :depends-on ("_package_ActuatorCommand"))
+    (:file "_package_ActuatorCommand" :depends-on ("_package"))
+    (:file "BallState" :depends-on ("_package_BallState"))
+    (:file "_package_BallState" :depends-on ("_package"))
+    (:file "GameState" :depends-on ("_package_GameState"))
+    (:file "_package_GameState" :depends-on ("_package"))
+    (:file "GlobalRobotState" :depends-on ("_package_GlobalRobotState"))
+    (:file "_package_GlobalRobotState" :depends-on ("_package"))
+    (:file "GlobalState" :depends-on ("_package_GlobalState"))
+    (:file "_package_GlobalState" :depends-on ("_package"))
+    (:file "LocalRobotState" :depends-on ("_package_LocalRobotState"))
+    (:file "_package_LocalRobotState" :depends-on ("_package"))
+    (:file "LocalState" :depends-on ("_package_LocalState"))
+    (:file "_package_LocalState" :depends-on ("_package"))
+    (:file "MotorCommand" :depends-on ("_package_MotorCommand"))
+    (:file "_package_MotorCommand" :depends-on ("_package"))
+    (:file "RobotCommand" :depends-on ("_package_RobotCommand"))
+    (:file "_package_RobotCommand" :depends-on ("_package"))
+    (:file "TeamCommand" :depends-on ("_package_TeamCommand"))
+    (:file "_package_TeamCommand" :depends-on ("_package"))
+    (:file "TeamPoseCommand" :depends-on ("_package_TeamPoseCommand"))
+    (:file "_package_TeamPoseCommand" :depends-on ("_package"))
+    (:file "Visualization" :depends-on ("_package_Visualization"))
+    (:file "_package_Visualization" :depends-on ("_package"))
+  ))

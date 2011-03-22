@@ -1,0 +1,15 @@
+<package>
+  <description brief="demo_supervisor">
+
+     demo_supervisor
+
+  </description>
+  <author>Kadir</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/demo_supervisor</url>
+  <depend package="roscpp"/>
+
+</package>
+
+
