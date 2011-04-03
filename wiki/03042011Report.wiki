@@ -1,0 +1,32 @@
+= 03.04.2011 Toplantı Raporu =
+==Meric==
+==Deadline: 25 April)==
+* Increment of robot's base.
+* Reassignment of omni-wheels (as 45 and 60 degrees)
+* Cover for robot's circumference.
+* Pattern template mount design.
+* Ask for kicker extended CAD files, calculations and features of other teams. (via RoboCup mail list directly.)
+
+
+==Salih==
+==Deadline 17 April..)==
+* Ask Ilim for dribbler rubber. Dribbler design.
+* Dribbler sensor array
+* Tsop or CNY70 or... 
+* IF possible meeting with Ilim (as soon as possible)
+* Fixed dribbler sizes. 
+* CAD Design (But I can't promise...)
+
+==Kadir==
+* Call B-Smart for Kicker-Dribbler CAD.
+* Simulation: RRT Based Pathica algorithm planning and Dribbling, Shooting, Passing and Marking behaviors coding (On 1th of May)
+
+==Mumin==
+==Deadline: 1 May==
+* Motor Control driver card and auxiliary card designs which is compatible with Gumstix.
+
+==GENERAL DEADLINE== On 1st May, we should have at least 2 robots with such abilities: 
+*Passing
+*Obstacle Avoidance (//With Ball)
+*Kicking
+*Dribbling
